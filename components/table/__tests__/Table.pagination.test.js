@@ -5,7 +5,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Table from '..';
 import scrollTo from '../../_util/scrollTo';
-import { resetWarned } from '../../_util/devWarning';
+import { resetWarned } from '../../_util/warning';
 
 describe('Table.pagination', () => {
   const columns = [
@@ -81,6 +81,27 @@ describe('Table.pagination', () => {
 
     wrapper.setProps({ pagination: { pageSize: 1 } });
     expect(renderedNames(wrapper)).toEqual(['Jack']);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/33487
+  it('should not crash when trigger onChange in render', () => {
+    function App() {
+      const [page, setPage] = React.useState({ current: 1, pageSize: 10 });
+      const onChange = (current, pageSize) => {
+        setPage({ current, pageSize });
+      };
+      return (
+        <Table
+          dataSource={[]}
+          pagination={{
+            ...page,
+            onChange,
+          }}
+        />
+      );
+    }
+    const wrapper = mount(<App />);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should accept pagination size', () => {
@@ -394,7 +415,7 @@ describe('Table.pagination', () => {
     );
     wrapper.find('.ant-select-selector').simulate('mousedown');
     jest.runAllTimers();
-    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    const dropdownWrapper = wrapper.find('Trigger');
     expect(wrapper.find('.ant-select-item-option').length).toBe(4);
     dropdownWrapper.find('.ant-select-item-option').at(3).simulate('click');
     expect(onShowSizeChange).toHaveBeenCalledTimes(1);
@@ -451,7 +472,7 @@ describe('Table.pagination', () => {
       }),
     );
     wrapper.find('.ant-select-selector').simulate('mousedown');
-    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    const dropdownWrapper = wrapper.find('Trigger');
     dropdownWrapper.find('.ant-select-item-option').at(2).simulate('click');
 
     expect(onChange).toBeCalledTimes(1);

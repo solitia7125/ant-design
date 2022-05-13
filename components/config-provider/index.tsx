@@ -1,23 +1,25 @@
 import * as React from 'react';
 import IconContext from '@ant-design/icons/lib/components/Context';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
-import { ValidateMessages } from 'rc-field-form/lib/interface';
+import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import { RenderEmptyHandler } from './renderEmpty';
-import LocaleProvider, { ANT_MARK, Locale } from '../locale-provider';
+import type { Locale } from '../locale-provider';
+import LocaleProvider, { ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import type { Theme } from './context';
 import {
   ConfigConsumer,
   ConfigContext,
   CSPConfig,
   DirectionType,
   ConfigConsumerProps,
-  Theme,
 } from './context';
-import SizeContext, { SizeContextProvider, SizeType } from './SizeContext';
+import type { SizeType } from './SizeContext';
+import SizeContext, { SizeContextProvider } from './SizeContext';
 import message from '../message';
 import notification from '../notification';
-import { RequiredMark } from '../form/Form';
+import type { RequiredMark } from '../form/Form';
 import { registerTheme } from './cssVariables';
 import defaultLocale from '../locale/default';
 
@@ -64,6 +66,7 @@ export interface ConfigProviderProps {
   form?: {
     validateMessages?: ValidateMessages;
     requiredMark?: RequiredMark;
+    colon?: boolean;
   };
   input?: {
     autoComplete?: string;
@@ -210,7 +213,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
 
   const memoIconContextValue = React.useMemo(
     () => ({ prefixCls: iconPrefixCls, csp }),
-    [iconPrefixCls],
+    [iconPrefixCls, csp],
   );
 
   let childNode = children;
@@ -237,7 +240,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     );
   }
 
-  if (iconPrefixCls) {
+  if (iconPrefixCls || csp) {
     childNode = (
       <IconContext.Provider value={memoIconContextValue}>{childNode}</IconContext.Provider>
     );

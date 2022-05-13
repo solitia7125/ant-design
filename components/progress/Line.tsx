@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { presetPrimaryColors } from '@ant-design/colors';
-import { ProgressGradient, ProgressProps, StringGradients } from './progress';
+import type { ProgressGradient, ProgressProps, StringGradients } from './progress';
 import { validProgress, getSuccessPercent } from './utils';
-import { DirectionType } from '../config-provider';
+import type { DirectionType } from '../config-provider';
 
 interface LineProps extends ProgressProps {
   prefixCls: string;
@@ -92,7 +92,7 @@ const Line: React.FC<LineProps> = props => {
   const percentStyle = {
     width: `${validProgress(percent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
-    borderRadius: strokeLinecap === 'square' ? 0 : '',
+    borderRadius: strokeLinecap === 'square' ? 0 : undefined,
     ...backgroundProps,
   } as React.CSSProperties;
 
@@ -101,7 +101,7 @@ const Line: React.FC<LineProps> = props => {
   const successPercentStyle = {
     width: `${validProgress(successPercent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
-    borderRadius: strokeLinecap === 'square' ? 0 : '',
+    borderRadius: strokeLinecap === 'square' ? 0 : undefined,
     backgroundColor: success?.strokeColor,
   } as React.CSSProperties;
 

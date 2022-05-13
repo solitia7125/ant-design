@@ -5,8 +5,10 @@ import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import EyeInvisibleOutlined from '@ant-design/icons/EyeInvisibleOutlined';
 
 import { useState } from 'react';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import Input, { InputProps } from './Input';
+import type { InputRef, InputProps } from './Input';
+import Input from './Input';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumer } from '../config-provider';
 
 export interface PasswordProps extends InputProps {
   readonly inputPrefixCls?: string;
@@ -20,7 +22,7 @@ const ActionMap: Record<string, string> = {
   hover: 'onMouseOver',
 };
 
-const Password = React.forwardRef<any, PasswordProps>((props, ref) => {
+const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
   const [visible, setVisible] = useState(false);
 
   const onVisibleChange = () => {

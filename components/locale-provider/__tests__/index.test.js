@@ -50,6 +50,7 @@ import kaGE from '../ka_GE';
 import kkKZ from '../kk_KZ';
 import knIN from '../kn_IN';
 import koKR from '../ko_KR';
+import kmKH from '../km_KH';
 import kmrIQ from '../kmr_IQ';
 import kuIQ from '../ku_IQ';
 import lvLV from '../lv_LV';
@@ -115,6 +116,7 @@ const locales = [
   kkKZ,
   knIN,
   koKR,
+  kmKH,
   kmrIQ,
   kuIQ,
   ltLT,
@@ -255,27 +257,19 @@ describe('Locale Provider', () => {
   });
 
   it('set moment locale when locale changes', () => {
-    class Test extends React.Component {
-      state = {
-        locale: zhCN,
-      };
+    const Test = ({ locale }) => (
+      <LocaleProvider locale={locale}>
+        <div>
+          <DatePicker defaultValue={moment()} open />
+        </div>
+      </LocaleProvider>
+    );
 
-      render() {
-        const { locale } = this.state;
-        return (
-          <LocaleProvider locale={locale}>
-            <div>
-              <DatePicker defaultValue={moment()} open />
-            </div>
-          </LocaleProvider>
-        );
-      }
-    }
-    const wrapper = mount(<Test />);
+    const wrapper = mount(<Test locale={zhCN} />);
     expect(wrapper.render()).toMatchSnapshot();
-    wrapper.setState({ locale: frFR });
+    wrapper.setProps({ locale: frFR });
     expect(wrapper.render()).toMatchSnapshot();
-    wrapper.setState({ locale: null });
+    wrapper.setProps({ locale: null });
     expect(wrapper.render()).toMatchSnapshot();
   });
 });

@@ -62,7 +62,7 @@ describe('DropdownButton', () => {
       </Menu>
     );
     const wrapper = mount(<Dropdown.Button overlay={menu} />);
-    expect(wrapper.type().__ANT_BUTTON).toBe(true);
+    expect(wrapper.find(Dropdown.Button).type().__ANT_BUTTON).toBe(true);
   });
 
   it('should pass mouseEnterDelay and mouseLeaveDelay to Dropdown', () => {
@@ -94,5 +94,13 @@ describe('DropdownButton', () => {
     );
     expect(wrapper.find('.ant-dropdown').getDOMNode().className).toContain('className');
     expect(wrapper.find('.ant-dropdown').getDOMNode().style.color).toContain('red');
+  });
+
+  it('should support loading', () => {
+    const wrapper = mount(<Dropdown.Button loading />);
+
+    expect(wrapper.find('.ant-dropdown-button .ant-btn-loading').getDOMNode().className).toContain(
+      'ant-btn',
+    );
   });
 });

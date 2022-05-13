@@ -1,19 +1,14 @@
 import * as React from 'react';
 import useRCNotification from 'rc-notification/lib/useNotification';
-import {
+import type {
   NotificationInstance as RCNotificationInstance,
   NoticeContent as RCNoticeContent,
   HolderReadyCallback as RCHolderReadyCallback,
 } from 'rc-notification/lib/Notification';
-import { ConfigConsumer, ConfigConsumerProps } from '../../config-provider';
-import {
-  MessageInstance,
-  ArgsProps,
-  attachTypeApi,
-  ThenableArgument,
-  getKeyThenIncreaseKey,
-  NoticeType,
-} from '..';
+import type { ConfigConsumerProps } from '../../config-provider';
+import { ConfigConsumer } from '../../config-provider';
+import type { MessageInstance, ArgsProps, ThenableArgument } from '..';
+import { attachTypeApi, getKeyThenIncreaseKey, typeList } from '..';
 
 export default function createUseMessage(
   getRcNotificationInstance: (
@@ -78,9 +73,7 @@ export default function createUseMessage(
 
     hookApiRef.current.open = notify;
 
-    (['success', 'info', 'warning', 'error', 'loading'] as NoticeType[]).forEach(type =>
-      attachTypeApi(hookApiRef.current, type),
-    );
+    typeList.forEach(type => attachTypeApi(hookApiRef.current, type));
 
     return [
       hookApiRef.current,

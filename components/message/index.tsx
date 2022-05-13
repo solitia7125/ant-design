@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import RCNotification from 'rc-notification';
-import {
+import type {
   NotificationInstance as RCNotificationInstance,
   NoticeContent,
 } from 'rc-notification/lib/Notification';
@@ -12,8 +12,6 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import createUseMessage from './hooks/useMessage';
 import ConfigProvider, { globalConfig } from '../config-provider';
-
-export type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
 let messageInstance: RCNotificationInstance | null;
 let defaultDuration = 3;
@@ -54,6 +52,7 @@ function setMessageConfig(options: ConfigOptions) {
   }
   if (options.getContainer !== undefined) {
     getContainer = options.getContainer;
+    messageInstance = null; // delete messageInstance for new getContainer
   }
   if (options.transitionName !== undefined) {
     transitionName = options.transitionName;
@@ -127,10 +126,15 @@ const typeToIcon = {
   warning: ExclamationCircleFilled,
   loading: LoadingOutlined,
 };
+
+export type NoticeType = keyof typeof typeToIcon;
+
+export const typeList = Object.keys(typeToIcon) as NoticeType[];
+
 export interface ArgsProps {
-  content: React.ReactNode;
+  content: any;
   duration?: number;
-  type: NoticeType;
+  type?: NoticeType;
   prefixCls?: string;
   rootPrefixCls?: string;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
@@ -148,7 +152,7 @@ function getRCNoticeProps(
   iconPrefixCls?: string,
 ): NoticeContent {
   const duration = args.duration !== undefined ? args.duration : defaultDuration;
-  const IconComponent = typeToIcon[args.type];
+  const IconComponent = typeToIcon[args.type!];
   const messageClass = classNames(`${prefixCls}-custom-content`, {
     [`${prefixCls}-${args.type}`]: args.type,
     [`${prefixCls}-rtl`]: rtl === true,
@@ -198,7 +202,7 @@ function notice(args: ArgsProps): MessageType {
   return result;
 }
 
-type ConfigContent = React.ReactNode | string;
+type ConfigContent = React.ReactNode;
 type ConfigDuration = number | (() => void);
 type JointContent = ConfigContent | ArgsProps;
 export type ConfigOnClose = () => void;
@@ -246,9 +250,7 @@ export function attachTypeApi(originalApi: MessageApi, type: NoticeType) {
   };
 }
 
-(['success', 'info', 'warning', 'error', 'loading'] as NoticeType[]).forEach(type =>
-  attachTypeApi(api, type),
-);
+typeList.forEach(type => attachTypeApi(api, type));
 
 api.warn = api.warning;
 api.useMessage = createUseMessage(getRCNotificationInstance, getRCNoticeProps);

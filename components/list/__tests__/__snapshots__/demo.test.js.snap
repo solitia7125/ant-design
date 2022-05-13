@@ -179,6 +179,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
     >
       <div
         class="ant-row"
+        role="row"
         style="margin-left:-8px;margin-right:-8px"
       >
         <div
@@ -186,6 +187,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
         >
           <div
             class="ant-col"
+            role="cell"
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
@@ -221,6 +223,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
         >
           <div
             class="ant-col"
+            role="cell"
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
@@ -256,6 +259,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
         >
           <div
             class="ant-col"
+            role="cell"
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
@@ -291,6 +295,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
         >
           <div
             class="ant-col"
+            role="cell"
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
@@ -340,6 +345,7 @@ Array [
       >
         <div
           class="ant-row"
+          role="row"
           style="margin-left:-8px;margin-right:-8px"
         >
           <div
@@ -347,6 +353,7 @@ Array [
           >
             <div
               class="ant-col"
+              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -382,6 +389,7 @@ Array [
           >
             <div
               class="ant-col"
+              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -417,6 +425,7 @@ Array [
           >
             <div
               class="ant-col"
+              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -452,6 +461,7 @@ Array [
           >
             <div
               class="ant-col"
+              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -487,6 +497,7 @@ Array [
           >
             <div
               class="ant-col"
+              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -522,6 +533,7 @@ Array [
           >
             <div
               class="ant-col"
+              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -567,6 +579,7 @@ Array [
       >
         <div
           class="ant-row"
+          role="row"
           style="margin-left:-8px;margin-right:-8px"
         >
           <div
@@ -574,6 +587,7 @@ Array [
           >
             <div
               class="ant-col"
+              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -609,6 +623,7 @@ Array [
           >
             <div
               class="ant-col"
+              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -644,6 +659,7 @@ Array [
           >
             <div
               class="ant-col"
+              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -679,6 +695,7 @@ Array [
           >
             <div
               class="ant-col"
+              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -714,6 +731,7 @@ Array [
           >
             <div
               class="ant-col"
+              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -749,6 +767,7 @@ Array [
           >
             <div
               class="ant-col"
+              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -794,6 +813,7 @@ Array [
       >
         <div
           class="ant-row"
+          role="row"
           style="margin-left:-8px;margin-right:-8px"
         >
           <div
@@ -801,6 +821,7 @@ Array [
           >
             <div
               class="ant-col"
+              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -837,6 +858,7 @@ Array [
           >
             <div
               class="ant-col"
+              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -873,6 +895,7 @@ Array [
           >
             <div
               class="ant-col"
+              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -909,6 +932,7 @@ Array [
           >
             <div
               class="ant-col"
+              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -945,6 +969,7 @@ Array [
           >
             <div
               class="ant-col"
+              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -981,6 +1006,7 @@ Array [
           >
             <div
               class="ant-col"
+              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -1122,20 +1148,6 @@ exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/list/demo/infinite-virtualized-load.md correctly 1`] = `
-<div
-  class="ant-list ant-list-split"
->
-  <div
-    class="ant-spin-nested-loading"
-  >
-    <div
-      class="ant-spin-container"
-    />
-  </div>
-</div>
-`;
-
 exports[`renders ./components/list/demo/loadmore.md correctly 1`] = `
 <div
   class="ant-list ant-list-split ant-list-loading demo-loadmore-list"
@@ -1145,6 +1157,8 @@ exports[`renders ./components/list/demo/loadmore.md correctly 1`] = `
   >
     <div>
       <div
+        aria-busy="true"
+        aria-live="polite"
         class="ant-spin ant-spin-spinning"
       >
         <span
@@ -1176,7 +1190,7 @@ exports[`renders ./components/list/demo/loadmore.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
+exports[`renders ./components/list/demo/responsive.md correctly 1`] = `
 <div
   class="ant-list ant-list-split ant-list-grid"
 >
@@ -1188,11 +1202,13 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
     >
       <div
         class="ant-row"
+        role="row"
         style="margin-left:-8px;margin-right:-8px"
       >
         <div>
           <div
             class="ant-col"
+            role="cell"
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
@@ -1226,6 +1242,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
         <div>
           <div
             class="ant-col"
+            role="cell"
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
@@ -1259,6 +1276,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
         <div>
           <div
             class="ant-col"
+            role="cell"
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
@@ -1292,6 +1310,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
         <div>
           <div
             class="ant-col"
+            role="cell"
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
@@ -1325,6 +1344,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
         <div>
           <div
             class="ant-col"
+            role="cell"
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
@@ -1358,6 +1378,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
         <div>
           <div
             class="ant-col"
+            role="cell"
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
@@ -2329,6 +2350,37 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         </button>
       </li>
     </ul>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/list/demo/virtual-list.md correctly 1`] = `
+<div
+  class="ant-list ant-list-split"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="rc-virtual-list"
+        style="position:relative"
+      >
+        <div
+          class="rc-virtual-list-holder"
+          style="height:400px;overflow-y:auto;overflow-anchor:none"
+        >
+          <div>
+            <div
+              class="rc-virtual-list-holder-inner"
+              style="display:flex;flex-direction:column"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;

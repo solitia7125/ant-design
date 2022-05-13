@@ -2,6 +2,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
+import { render, fireEvent } from '../../../tests/utils';
 import Table from '..';
 import Input from '../../input';
 import Tooltip from '../../tooltip';
@@ -101,8 +102,8 @@ describe('Table.filter', () => {
   it('renders empty menu correctly', () => {
     jest.useFakeTimers();
 
-    jest.spyOn(console, 'error').mockImplementation(() => undefined);
-    const wrapper = mount(
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    const { container } = render(
       createTable({
         columns: [
           {
@@ -112,17 +113,16 @@ describe('Table.filter', () => {
         ],
       }),
     );
-    wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+
+    fireEvent.click(container.querySelector('span.ant-dropdown-trigger'), nativeEvent);
+
     act(() => {
       jest.runAllTimers();
-      wrapper.update();
     });
 
-    expect(wrapper.find('Empty').length).toBeTruthy();
-    // eslint-disable-next-line no-console
-    expect(console.error).not.toHaveBeenCalled();
-    // eslint-disable-next-line no-console
-    console.error.mockRestore();
+    expect(container.querySelector('.ant-empty')).toBeTruthy();
+    expect(errorSpy).not.toHaveBeenCalled();
+    errorSpy.mockRestore();
 
     jest.useRealTimers();
   });
@@ -866,6 +866,7 @@ describe('Table.filter', () => {
               dataIndex: 'name',
               key: 'name',
               filteredValue: name,
+              // eslint-disable-next-line react/no-unstable-nested-components
               filterDropdown: ({ setSelectedKeys, selectedKeys, confirm }) => (
                 <div>
                   <Input
@@ -1099,7 +1100,7 @@ describe('Table.filter', () => {
   it('should support getPopupContainer', () => {
     const getPopupContainer = jest.fn(node => node.parentNode);
 
-    const wrapper = mount(
+    mount(
       createTable({
         columns: [
           {
@@ -1110,13 +1111,14 @@ describe('Table.filter', () => {
         getPopupContainer,
       }),
     );
-    expect(wrapper.render()).toMatchSnapshot();
     expect(getPopupContainer).toHaveBeenCalled();
   });
 
   it('should support getPopupContainer from ConfigProvider', () => {
-    const wrapper = mount(
-      <ConfigProvider getPopupContainer={node => node.parentNode}>
+    const getPopupContainer = jest.fn(node => node.parentNode);
+
+    mount(
+      <ConfigProvider getPopupContainer={getPopupContainer}>
         {createTable({
           columns: [
             {
@@ -1127,7 +1129,7 @@ describe('Table.filter', () => {
         })}
       </ConfigProvider>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(getPopupContainer).toHaveBeenCalled();
   });
 
   it('pass visible prop to filterDropdown', () => {
@@ -1266,7 +1268,7 @@ describe('Table.filter', () => {
         cols: [],
       };
 
-      componentDidMount = () => {
+      componentDidMount() {
         this.setState({
           cols: [
             {
@@ -1276,7 +1278,7 @@ describe('Table.filter', () => {
             },
           ],
         });
-      };
+      }
 
       render() {
         const { cols } = this.state;
@@ -1700,38 +1702,36 @@ describe('Table.filter', () => {
           },
         ];
         return (
-          <>
-            <Table
-              columns={columns}
-              dataSource={[
-                {
-                  key: '1',
-                  name: 'John Brown',
-                  age: 32,
-                  address: 'New York No. 1 Lake Park',
-                },
-                {
-                  key: '2',
-                  name: 'Jim Green',
-                  age: 42,
-                  address: 'London No. 1 Lake Park',
-                },
-                {
-                  key: '3',
-                  name: 'Joe Black',
-                  age: 66,
-                  address: 'Sidney No. 1 Lake Park',
-                },
-                {
-                  key: '4',
-                  name: 'Jim Red',
-                  age: 32,
-                  address: 'London No. 2 Lake Park',
-                },
-              ]}
-              onChange={this.handleChange}
-            />
-          </>
+          <Table
+            columns={columns}
+            dataSource={[
+              {
+                key: '1',
+                name: 'John Brown',
+                age: 32,
+                address: 'New York No. 1 Lake Park',
+              },
+              {
+                key: '2',
+                name: 'Jim Green',
+                age: 42,
+                address: 'London No. 1 Lake Park',
+              },
+              {
+                key: '3',
+                name: 'Joe Black',
+                age: 66,
+                address: 'Sidney No. 1 Lake Park',
+              },
+              {
+                key: '4',
+                name: 'Jim Red',
+                age: 32,
+                address: 'London No. 2 Lake Park',
+              },
+            ]}
+            onChange={this.handleChange}
+          />
         );
       }
     }
@@ -1863,6 +1863,48 @@ describe('Table.filter', () => {
       expect(wrapper.find('li.ant-dropdown-menu-item').length).toBe(2);
     });
 
+    it('should supports filterSearch has type of function', () => {
+      jest.useFakeTimers();
+      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const wrapper = mount(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filters: [
+                {
+                  text: '123',
+                  value: '123',
+                },
+                {
+                  text: 123456,
+                  value: '456',
+                },
+                {
+                  text: <span>123</span>,
+                  value: '456',
+                },
+              ],
+              filterSearch: (input, record) => record.value.indexOf(input) > -1,
+            },
+          ],
+        }),
+      );
+      wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+      act(() => {
+        jest.runAllTimers();
+        wrapper.update();
+      });
+      expect(wrapper.find(Menu).length).toBe(1);
+      expect(wrapper.find(Input).length).toBe(1);
+      expect(wrapper.find('li.ant-dropdown-menu-item').length).toBe(3);
+      wrapper
+        .find(Input)
+        .find('input')
+        .simulate('change', { target: { value: '456' } });
+      expect(wrapper.find('li.ant-dropdown-menu-item').length).toBe(2);
+    });
+
     it('supports check all items', () => {
       jest.useFakeTimers();
       jest.spyOn(console, 'error').mockImplementation(() => undefined);
@@ -1922,6 +1964,42 @@ describe('Table.filter', () => {
       expect(wrapper.find('.ant-tree-checkbox').at(0).hasClass('ant-tree-checkbox-checked')).toBe(
         true,
       );
+      expect(
+        wrapper
+          .find('.ant-table-filter-dropdown-checkall .ant-checkbox')
+          .hasClass('ant-checkbox-indeterminate'),
+      ).toBe(true);
+    });
+
+    it('select-all checkbox should change when all items are selected', () => {
+      jest.useFakeTimers();
+      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const wrapper = mount(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filterMode: 'tree',
+              filters: [
+                { text: 'Boy', value: 'boy' },
+                { text: 'Girl', value: 'girl' },
+              ],
+            },
+          ],
+        }),
+      );
+      wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+      act(() => {
+        jest.runAllTimers();
+        wrapper.update();
+      });
+      wrapper.find('.ant-tree-node-content-wrapper').at(0).simulate('click');
+      wrapper.find('.ant-tree-node-content-wrapper').at(1).simulate('click');
+      expect(
+        wrapper
+          .find('.ant-table-filter-dropdown-checkall .ant-checkbox')
+          .hasClass('ant-checkbox-checked'),
+      ).toBe(true);
     });
   });
 
@@ -2051,5 +2129,229 @@ describe('Table.filter', () => {
     wrapper.find('.ant-tree-node-content-wrapper').at(2).simulate('click');
     wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Jack']);
+  });
+
+  it('clearFilters should support params', () => {
+    const filterConfig = [
+      ['Jack', 'NoParams', {}, ['Jack'], true],
+      ['Lucy', 'Confirm', { confirm: true }, ['Jack', 'Lucy', 'Tom', 'Jerry'], true],
+      ['Tom', 'Close', { closeDropdown: true }, ['Tom'], false],
+      [
+        'Jerry',
+        'Params',
+        { closeDropdown: true, confirm: true },
+        ['Jack', 'Lucy', 'Tom', 'Jerry'],
+        false,
+      ],
+    ];
+    const filter = ({ prefixCls, setSelectedKeys, confirm, clearFilters }) => (
+      <div className={`${prefixCls}-view`} id="customFilter">
+        {filterConfig.map(([text, id, param]) => (
+          <>
+            <span
+              onClick={() => {
+                setSelectedKeys([text]);
+                confirm();
+              }}
+              id={`set${id}`}
+            >
+              setSelectedKeys
+            </span>
+            <span onClick={() => clearFilters(param)} id={`reset${id}`}>
+              Reset
+            </span>
+          </>
+        ))}
+      </div>
+    );
+
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filterDropdown: filter,
+          },
+        ],
+      }),
+    );
+
+    function getFilterMenu() {
+      return wrapper.find('FilterDropdown');
+    }
+
+    // check if renderer well
+    wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+    expect(wrapper.find('#customFilter')).toMatchSnapshot();
+    expect(getFilterMenu().props().filterState.filteredKeys).toBeFalsy();
+
+    filterConfig.forEach(([text, id, , res1, res2]) => {
+      wrapper.find(`#set${id}`).simulate('click');
+      wrapper.update();
+      expect(renderedNames(wrapper)).toEqual([text]);
+
+      wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+      wrapper.find(`#reset${id}`).simulate('click');
+      wrapper.update();
+      expect(renderedNames(wrapper)).toEqual(res1);
+      expect(wrapper.find('Dropdown').first().props().visible).toBe(res2);
+    });
+  });
+
+  it('filterDropdown should support filterResetToDefaultFilteredValue', () => {
+    jest.useFakeTimers();
+    jest.spyOn(console, 'error').mockImplementation(() => undefined);
+
+    const columnFilter = {
+      ...column,
+      filterMode: 'tree',
+      filterSearch: true,
+      defaultFilteredValue: ['girl'],
+    };
+
+    let wrapper = mount(
+      createTable({
+        columns: [columnFilter],
+      }),
+    );
+    wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+    act(() => {
+      jest.runAllTimers();
+      wrapper.update();
+    });
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(1);
+    wrapper
+      .find(Checkbox)
+      .find('input')
+      .simulate('change', { target: { checked: true } });
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(5);
+    wrapper.find('button.ant-btn-link').simulate('click', nativeEvent);
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(0);
+
+    wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...columnFilter,
+            filterResetToDefaultFilteredValue: true,
+          },
+        ],
+      }),
+    );
+    wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+    act(() => {
+      jest.runAllTimers();
+      wrapper.update();
+    });
+    wrapper
+      .find(Checkbox)
+      .find('input')
+      .simulate('change', { target: { checked: true } });
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(5);
+    wrapper.find('button.ant-btn-link').simulate('click', nativeEvent);
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(1);
+    expect(wrapper.find('.ant-tree-checkbox-checked+span').text()).toBe('Girl');
+  });
+
+  it('filteredKeys should all be controlled or not controlled', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    errorSpy.mockReset();
+    const tableData = [
+      {
+        key: '1',
+        name: 'John Brown',
+        age: 32,
+      },
+    ];
+    const columns = [
+      {
+        title: 'name',
+        dataIndex: 'name',
+        key: 'name',
+        filters: [],
+      },
+      {
+        title: 'age',
+        dataIndex: 'age',
+        key: 'age',
+        filters: [],
+      },
+    ];
+    render(
+      createTable({
+        columns,
+        data: tableData,
+      }),
+    );
+    expect(errorSpy).not.toBeCalled();
+    errorSpy.mockReset();
+    columns[0].filteredValue = [];
+    render(
+      createTable({
+        columns,
+        data: tableData,
+      }),
+    );
+    expect(errorSpy).toBeCalledWith(
+      'Warning: [antd: Table] Columns should all contain `filteredValue` or not contain `filteredValue`.',
+    );
+    errorSpy.mockReset();
+    columns[1].filteredValue = [];
+    render(
+      createTable({
+        columns,
+        data: tableData,
+      }),
+    );
+    expect(errorSpy).not.toBeCalled();
+  });
+
+  it('can reset if filterResetToDefaultFilteredValue and filter is changing', () => {
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filters: [
+              { text: 'Jack', value: 'Jack' },
+              { text: 'Lucy', value: 'Lucy' },
+            ],
+            defaultFilteredValue: ['Jack'],
+            filterResetToDefaultFilteredValue: true,
+          },
+        ],
+      }),
+    );
+    expect(wrapper.find('tbody tr').length).toBe(1);
+    expect(wrapper.find('tbody tr').text()).toBe('Jack');
+
+    // open filter
+    wrapper.find('span.ant-dropdown-trigger').first().simulate('click');
+    expect(
+      wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-link').props().disabled,
+    ).toBeTruthy();
+    expect(wrapper.find('li.ant-dropdown-menu-item').at(0).text()).toBe('Jack');
+    expect(wrapper.find('li.ant-dropdown-menu-item').at(1).text()).toBe('Lucy');
+
+    // deselect default
+    wrapper.find('li.ant-dropdown-menu-item').at(0).simulate('click');
+    expect(
+      wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-link').props().disabled,
+    ).toBeFalsy();
+    // select other one
+    wrapper.find('li.ant-dropdown-menu-item').at(1).simulate('click');
+    expect(
+      wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-link').props().disabled,
+    ).toBeFalsy();
+    // deselect other one
+    wrapper.find('li.ant-dropdown-menu-item').at(1).simulate('click');
+    expect(
+      wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-link').props().disabled,
+    ).toBeFalsy();
+    // select default
+    wrapper.find('li.ant-dropdown-menu-item').at(0).simulate('click');
+    expect(
+      wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-link').props().disabled,
+    ).toBeTruthy();
   });
 });

@@ -1,10 +1,14 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import Spin, { SpinProps } from '../spin';
+import type { SpinProps } from '../spin';
+import Spin from '../spin';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
-import { Breakpoint, responsiveArray } from '../_util/responsiveObserve';
-import { RenderEmptyHandler, ConfigContext } from '../config-provider';
-import Pagination, { PaginationConfig } from '../pagination';
+import type { Breakpoint } from '../_util/responsiveObserve';
+import { responsiveArray } from '../_util/responsiveObserve';
+import type { RenderEmptyHandler } from '../config-provider';
+import { ConfigContext } from '../config-provider';
+import type { PaginationConfig } from '../pagination';
+import Pagination from '../pagination';
 import { Row } from '../grid';
 import Item from './Item';
 
@@ -53,7 +57,7 @@ export interface ListProps<T> {
 }
 
 export interface ListLocale {
-  emptyText: React.ReactNode | (() => React.ReactNode);
+  emptyText: React.ReactNode;
 }
 
 export interface ListConsumerProps {
@@ -213,7 +217,10 @@ function List<T>({
     }
   }
 
-  const screens = useBreakpoint();
+  const needResponsive = Object.keys(grid || {}).some(key =>
+    ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(key),
+  );
+  const screens = useBreakpoint(needResponsive);
   const currentBreakpoint = React.useMemo(() => {
     for (let i = 0; i < responsiveArray.length; i += 1) {
       const breakpoint: Breakpoint = responsiveArray[i];
@@ -256,9 +263,13 @@ function List<T>({
   }
 
   const paginationPosition = paginationProps.position || 'bottom';
+  const contextValue = React.useMemo(
+    () => ({ grid, itemLayout }),
+    [JSON.stringify(grid), itemLayout],
+  );
 
   return (
-    <ListContext.Provider value={{ grid, itemLayout }}>
+    <ListContext.Provider value={contextValue}>
       <div className={classString} {...rest}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
         {header && <div className={`${prefixCls}-header`}>{header}</div>}

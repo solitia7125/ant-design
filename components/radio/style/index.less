@@ -32,11 +32,22 @@
   margin-right: @radio-wrapper-margin-right;
   cursor: pointer;
 
+  &-disabled {
+    cursor: not-allowed;
+  }
+
   &::after {
     display: inline-block;
     width: 0;
     overflow: hidden;
     content: '\a0';
+  }
+
+  &&-in-form-item {
+    input[type='radio'] {
+      width: 14px;
+      height: 14px;
+    }
   }
 }
 
@@ -81,15 +92,17 @@
   &-inner {
     &::after {
       position: absolute;
-      top: ((@radio-size - @radio-dot-size) / 2) - @radio-border-width;
-      left: ((@radio-size - @radio-dot-size) / 2) - @radio-border-width;
+      top: 50%;
+      left: 50%;
       display: block;
-      width: @radio-dot-size;
-      height: @radio-dot-size;
+      width: @radio-size;
+      height: @radio-size;
+      margin-top: -(@radio-size / 2);
+      margin-left: -(@radio-size / 2);
       background-color: @radio-dot-color;
       border-top: 0;
       border-left: 0;
-      border-radius: @radio-dot-size;
+      border-radius: @radio-size;
       transform: scale(0);
       opacity: 0;
       transition: all @radio-duration @ease-in-out-circ;
@@ -128,7 +141,7 @@
     border-color: @radio-dot-color;
 
     &::after {
-      transform: scale(1);
+      transform: scale((unit(@radio-dot-size) / unit(@radio-size)));
       opacity: 1;
       transition: all @radio-duration @ease-in-out-circ;
     }
@@ -168,7 +181,7 @@ span.@{radio-prefix-cls} + * {
   display: inline-block;
   height: @btn-height-base;
   margin: 0;
-  padding: 0 @padding-md - 1px;
+  padding: 0 @radio-button-padding-horizontal;
   color: @radio-button-color;
   font-size: @font-size-base;
   line-height: @btn-height-base - 2px;

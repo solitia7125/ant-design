@@ -985,195 +985,207 @@ exports[`ConfigProvider components Badge prefixCls 1`] = `
 `;
 
 exports[`ConfigProvider components Breadcrumb configProvider 1`] = `
-<div
+<nav
   class="config-breadcrumb"
 >
-  <span>
-    <span
-      class="config-breadcrumb-link"
-    >
-      Bamboo
-    </span>
-    <span
-      class="config-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-  <span>
-    <span
-      class="config-breadcrumb-link"
-    >
-      Light
-    </span>
-    <span
-      class="config-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-</div>
+  <ol>
+    <li>
+      <span
+        class="config-breadcrumb-link"
+      >
+        Bamboo
+      </span>
+      <span
+        class="config-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+    <li>
+      <span
+        class="config-breadcrumb-link"
+      >
+        Light
+      </span>
+      <span
+        class="config-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+  </ol>
+</nav>
 `;
 
 exports[`ConfigProvider components Breadcrumb configProvider componentSize large 1`] = `
-<div
+<nav
   class="config-breadcrumb"
 >
-  <span>
-    <span
-      class="config-breadcrumb-link"
-    >
-      Bamboo
-    </span>
-    <span
-      class="config-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-  <span>
-    <span
-      class="config-breadcrumb-link"
-    >
-      Light
-    </span>
-    <span
-      class="config-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-</div>
+  <ol>
+    <li>
+      <span
+        class="config-breadcrumb-link"
+      >
+        Bamboo
+      </span>
+      <span
+        class="config-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+    <li>
+      <span
+        class="config-breadcrumb-link"
+      >
+        Light
+      </span>
+      <span
+        class="config-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+  </ol>
+</nav>
 `;
 
 exports[`ConfigProvider components Breadcrumb configProvider componentSize middle 1`] = `
-<div
+<nav
   class="config-breadcrumb"
 >
-  <span>
-    <span
-      class="config-breadcrumb-link"
-    >
-      Bamboo
-    </span>
-    <span
-      class="config-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-  <span>
-    <span
-      class="config-breadcrumb-link"
-    >
-      Light
-    </span>
-    <span
-      class="config-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-</div>
+  <ol>
+    <li>
+      <span
+        class="config-breadcrumb-link"
+      >
+        Bamboo
+      </span>
+      <span
+        class="config-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+    <li>
+      <span
+        class="config-breadcrumb-link"
+      >
+        Light
+      </span>
+      <span
+        class="config-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+  </ol>
+</nav>
 `;
 
 exports[`ConfigProvider components Breadcrumb configProvider virtual and dropdownMatchSelectWidth 1`] = `
-<div
+<nav
   class="ant-breadcrumb"
 >
-  <span>
-    <span
-      class="ant-breadcrumb-link"
-    >
-      Bamboo
-    </span>
-    <span
-      class="ant-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-  <span>
-    <span
-      class="ant-breadcrumb-link"
-    >
-      Light
-    </span>
-    <span
-      class="ant-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-</div>
+  <ol>
+    <li>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        Bamboo
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+    <li>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        Light
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+  </ol>
+</nav>
 `;
 
 exports[`ConfigProvider components Breadcrumb normal 1`] = `
-<div
+<nav
   class="ant-breadcrumb"
 >
-  <span>
-    <span
-      class="ant-breadcrumb-link"
-    >
-      Bamboo
-    </span>
-    <span
-      class="ant-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-  <span>
-    <span
-      class="ant-breadcrumb-link"
-    >
-      Light
-    </span>
-    <span
-      class="ant-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-</div>
+  <ol>
+    <li>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        Bamboo
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+    <li>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        Light
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+  </ol>
+</nav>
 `;
 
 exports[`ConfigProvider components Breadcrumb prefixCls 1`] = `
-<div
+<nav
   class="prefix-Breadcrumb"
 >
-  <span>
-    <span
-      class="prefix-Breadcrumb-link"
-    >
-      Bamboo
-    </span>
-    <span
-      class="prefix-Breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-  <span>
-    <span
-      class="prefix-Breadcrumb-link"
-    >
-      Light
-    </span>
-    <span
-      class="prefix-Breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-</div>
+  <ol>
+    <li>
+      <span
+        class="prefix-Breadcrumb-link"
+      >
+        Bamboo
+      </span>
+      <span
+        class="prefix-Breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+    <li>
+      <span
+        class="prefix-Breadcrumb-link"
+      >
+        Light
+      </span>
+      <span
+        class="prefix-Breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+  </ol>
+</nav>
 `;
 
 exports[`ConfigProvider components Button configProvider 1`] = `
 <div>
   <button
-    class="config-btn"
+    class="config-btn config-btn-default"
     type="button"
   >
     <span>
@@ -1184,7 +1196,7 @@ exports[`ConfigProvider components Button configProvider 1`] = `
     class="config-btn-group"
   >
     <button
-      class="config-btn"
+      class="config-btn config-btn-default"
       type="button"
     >
       <span>
@@ -1192,7 +1204,7 @@ exports[`ConfigProvider components Button configProvider 1`] = `
       </span>
     </button>
     <button
-      class="config-btn"
+      class="config-btn config-btn-default"
       type="button"
     >
       <span>
@@ -1206,7 +1218,7 @@ exports[`ConfigProvider components Button configProvider 1`] = `
 exports[`ConfigProvider components Button configProvider componentSize large 1`] = `
 <div>
   <button
-    class="config-btn config-btn-lg"
+    class="config-btn config-btn-default config-btn-lg"
     type="button"
   >
     <span>
@@ -1217,7 +1229,7 @@ exports[`ConfigProvider components Button configProvider componentSize large 1`]
     class="config-btn-group"
   >
     <button
-      class="config-btn config-btn-lg"
+      class="config-btn config-btn-default config-btn-lg"
       type="button"
     >
       <span>
@@ -1225,7 +1237,7 @@ exports[`ConfigProvider components Button configProvider componentSize large 1`]
       </span>
     </button>
     <button
-      class="config-btn config-btn-lg"
+      class="config-btn config-btn-default config-btn-lg"
       type="button"
     >
       <span>
@@ -1239,7 +1251,7 @@ exports[`ConfigProvider components Button configProvider componentSize large 1`]
 exports[`ConfigProvider components Button configProvider componentSize middle 1`] = `
 <div>
   <button
-    class="config-btn"
+    class="config-btn config-btn-default"
     type="button"
   >
     <span>
@@ -1250,7 +1262,7 @@ exports[`ConfigProvider components Button configProvider componentSize middle 1`
     class="config-btn-group"
   >
     <button
-      class="config-btn"
+      class="config-btn config-btn-default"
       type="button"
     >
       <span>
@@ -1258,7 +1270,7 @@ exports[`ConfigProvider components Button configProvider componentSize middle 1`
       </span>
     </button>
     <button
-      class="config-btn"
+      class="config-btn config-btn-default"
       type="button"
     >
       <span>
@@ -1272,7 +1284,7 @@ exports[`ConfigProvider components Button configProvider componentSize middle 1`
 exports[`ConfigProvider components Button configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div>
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -1283,7 +1295,7 @@ exports[`ConfigProvider components Button configProvider virtual and dropdownMat
     class="ant-btn-group"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1291,7 +1303,7 @@ exports[`ConfigProvider components Button configProvider virtual and dropdownMat
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1305,7 +1317,7 @@ exports[`ConfigProvider components Button configProvider virtual and dropdownMat
 exports[`ConfigProvider components Button normal 1`] = `
 <div>
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -1316,7 +1328,7 @@ exports[`ConfigProvider components Button normal 1`] = `
     class="ant-btn-group"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1324,7 +1336,7 @@ exports[`ConfigProvider components Button normal 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1338,7 +1350,7 @@ exports[`ConfigProvider components Button normal 1`] = `
 exports[`ConfigProvider components Button prefixCls 1`] = `
 <div>
   <button
-    class="prefix-Button"
+    class="prefix-Button prefix-Button-default"
     type="button"
   >
     <span>
@@ -1349,7 +1361,7 @@ exports[`ConfigProvider components Button prefixCls 1`] = `
     class="prefix-Button"
   >
     <button
-      class="prefix-Button"
+      class="prefix-Button prefix-Button-default"
       type="button"
     >
       <span>
@@ -1357,7 +1369,7 @@ exports[`ConfigProvider components Button prefixCls 1`] = `
       </span>
     </button>
     <button
-      class="prefix-Button"
+      class="prefix-Button prefix-Button-default"
       type="button"
     >
       <span>
@@ -9977,7 +9989,6 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
       class="config-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -10033,7 +10044,6 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
       class="config-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -10089,7 +10099,6 @@ exports[`ConfigProvider components Cascader configProvider componentSize middle 
       class="config-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -10145,7 +10154,6 @@ exports[`ConfigProvider components Cascader configProvider virtual and dropdownM
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -10201,7 +10209,6 @@ exports[`ConfigProvider components Cascader normal 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -10257,7 +10264,6 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
       class="prefix-Cascader-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-haspopup="listbox"
@@ -12677,7 +12683,7 @@ exports[`ConfigProvider components Dropdown configProvider 1`] = `
   class="config-btn-group config-dropdown-button"
 >
   <button
-    class="config-btn"
+    class="config-btn config-btn-default"
     type="button"
   >
     <span>
@@ -12685,7 +12691,7 @@ exports[`ConfigProvider components Dropdown configProvider 1`] = `
     </span>
   </button>
   <button
-    class="config-btn config-btn-icon-only config-dropdown-trigger"
+    class="config-btn config-btn-default config-btn-icon-only config-dropdown-trigger"
     type="button"
   >
     <span
@@ -12716,7 +12722,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize large 1
   class="config-btn-group config-dropdown-button"
 >
   <button
-    class="config-btn config-btn-lg"
+    class="config-btn config-btn-default config-btn-lg"
     type="button"
   >
     <span>
@@ -12724,7 +12730,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize large 1
     </span>
   </button>
   <button
-    class="config-btn config-btn-lg config-btn-icon-only config-dropdown-trigger"
+    class="config-btn config-btn-default config-btn-lg config-btn-icon-only config-dropdown-trigger"
     type="button"
   >
     <span
@@ -12755,7 +12761,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize middle 
   class="config-btn-group config-dropdown-button"
 >
   <button
-    class="config-btn"
+    class="config-btn config-btn-default"
     type="button"
   >
     <span>
@@ -12763,7 +12769,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize middle 
     </span>
   </button>
   <button
-    class="config-btn config-btn-icon-only config-dropdown-trigger"
+    class="config-btn config-btn-default config-btn-icon-only config-dropdown-trigger"
     type="button"
   >
     <span
@@ -12794,7 +12800,7 @@ exports[`ConfigProvider components Dropdown configProvider virtual and dropdownM
   class="ant-btn-group ant-dropdown-button"
 >
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -12802,7 +12808,7 @@ exports[`ConfigProvider components Dropdown configProvider virtual and dropdownM
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-icon-only ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
     type="button"
   >
     <span
@@ -12833,7 +12839,7 @@ exports[`ConfigProvider components Dropdown normal 1`] = `
   class="ant-btn-group ant-dropdown-button"
 >
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -12841,7 +12847,7 @@ exports[`ConfigProvider components Dropdown normal 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-icon-only ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
     type="button"
   >
     <span
@@ -12872,7 +12878,7 @@ exports[`ConfigProvider components Dropdown prefixCls 1`] = `
   class="ant-btn-group prefix-Dropdown"
 >
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -12880,7 +12886,7 @@ exports[`ConfigProvider components Dropdown prefixCls 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-icon-only ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
     type="button"
   >
     <span
@@ -13362,9 +13368,11 @@ exports[`ConfigProvider components Form configProvider 1`] = `
 >
   <div
     class="config-row config-form-item config-form-item-with-help config-form-item-has-error"
+    role="row"
   >
     <div
       class="config-col config-form-item-control"
+      role="cell"
     >
       <div
         class="config-form-item-control-input"
@@ -13373,7 +13381,7 @@ exports[`ConfigProvider components Form configProvider 1`] = `
           class="config-form-item-control-input-content"
         >
           <input
-            class="config-input"
+            class="config-input config-input-status-error"
             type="text"
             value=""
           />
@@ -13400,9 +13408,11 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
 >
   <div
     class="config-row config-form-item config-form-item-with-help config-form-item-has-error"
+    role="row"
   >
     <div
       class="config-col config-form-item-control"
+      role="cell"
     >
       <div
         class="config-form-item-control-input"
@@ -13411,7 +13421,7 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
           class="config-form-item-control-input-content"
         >
           <input
-            class="config-input config-input-lg"
+            class="config-input config-input-lg config-input-status-error"
             type="text"
             value=""
           />
@@ -13438,9 +13448,11 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
 >
   <div
     class="config-row config-form-item config-form-item-with-help config-form-item-has-error"
+    role="row"
   >
     <div
       class="config-col config-form-item-control"
+      role="cell"
     >
       <div
         class="config-form-item-control-input"
@@ -13449,7 +13461,7 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
           class="config-form-item-control-input-content"
         >
           <input
-            class="config-input"
+            class="config-input config-input-status-error"
             type="text"
             value=""
           />
@@ -13476,9 +13488,11 @@ exports[`ConfigProvider components Form configProvider virtual and dropdownMatch
 >
   <div
     class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    role="row"
   >
     <div
       class="ant-col ant-form-item-control"
+      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -13487,7 +13501,7 @@ exports[`ConfigProvider components Form configProvider virtual and dropdownMatch
           class="ant-form-item-control-input-content"
         >
           <input
-            class="ant-input"
+            class="ant-input ant-input-status-error"
             type="text"
             value=""
           />
@@ -13514,9 +13528,11 @@ exports[`ConfigProvider components Form normal 1`] = `
 >
   <div
     class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    role="row"
   >
     <div
       class="ant-col ant-form-item-control"
+      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -13525,7 +13541,7 @@ exports[`ConfigProvider components Form normal 1`] = `
           class="ant-form-item-control-input-content"
         >
           <input
-            class="ant-input"
+            class="ant-input ant-input-status-error"
             type="text"
             value=""
           />
@@ -13552,9 +13568,11 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
 >
   <div
     class="ant-row prefix-Form-item prefix-Form-item-with-help prefix-Form-item-has-error"
+    role="row"
   >
     <div
       class="ant-col prefix-Form-item-control"
+      role="cell"
     >
       <div
         class="prefix-Form-item-control-input"
@@ -13563,7 +13581,7 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
           class="prefix-Form-item-control-input-content"
         >
           <input
-            class="prefix-Form"
+            class="prefix-Form prefix-Form-status-error"
             type="text"
             value=""
           />
@@ -13587,9 +13605,11 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
 exports[`ConfigProvider components Grid configProvider 1`] = `
 <div
   class="config-row"
+  role="row"
 >
   <div
     class="config-col config-col-1"
+    role="cell"
   />
 </div>
 `;
@@ -13597,9 +13617,11 @@ exports[`ConfigProvider components Grid configProvider 1`] = `
 exports[`ConfigProvider components Grid configProvider componentSize large 1`] = `
 <div
   class="config-row"
+  role="row"
 >
   <div
     class="config-col config-col-1"
+    role="cell"
   />
 </div>
 `;
@@ -13607,9 +13629,11 @@ exports[`ConfigProvider components Grid configProvider componentSize large 1`] =
 exports[`ConfigProvider components Grid configProvider componentSize middle 1`] = `
 <div
   class="config-row"
+  role="row"
 >
   <div
     class="config-col config-col-1"
+    role="cell"
   />
 </div>
 `;
@@ -13617,9 +13641,11 @@ exports[`ConfigProvider components Grid configProvider componentSize middle 1`] 
 exports[`ConfigProvider components Grid configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-row"
+  role="row"
 >
   <div
     class="ant-col ant-col-1"
+    role="cell"
   />
 </div>
 `;
@@ -13627,9 +13653,11 @@ exports[`ConfigProvider components Grid configProvider virtual and dropdownMatch
 exports[`ConfigProvider components Grid normal 1`] = `
 <div
   class="ant-row"
+  role="row"
 >
   <div
     class="ant-col ant-col-1"
+    role="cell"
   />
 </div>
 `;
@@ -13637,9 +13665,11 @@ exports[`ConfigProvider components Grid normal 1`] = `
 exports[`ConfigProvider components Grid prefixCls 1`] = `
 <div
   class="prefix-row"
+  role="row"
 >
   <div
     class="prefix-col prefix-col-1"
+    role="cell"
   />
 </div>
 `;
@@ -13669,7 +13699,7 @@ exports[`ConfigProvider components Input configProvider 1`] = `
           class="config-input-group-addon"
         >
           <button
-            class="config-btn config-btn-icon-only config-input-search-button"
+            class="config-btn config-btn-default config-btn-icon-only config-input-search-button"
             type="button"
           >
             <span
@@ -13750,7 +13780,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
       value=""
     />
     <span
-      class="config-input-group-wrapper config-input-group-wrapper-lg config-input-search config-input-search-large"
+      class="config-input-group-wrapper config-input-search config-input-search-large config-input-group-wrapper-lg"
     >
       <span
         class="config-input-wrapper config-input-group"
@@ -13764,7 +13794,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
           class="config-input-group-addon"
         >
           <button
-            class="config-btn config-btn-lg config-btn-icon-only config-input-search-button"
+            class="config-btn config-btn-default config-btn-lg config-btn-icon-only config-input-search-button"
             type="button"
           >
             <span
@@ -13792,7 +13822,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
     </span>
   </span>
   <span
-    class="config-input-affix-wrapper config-input-affix-wrapper-lg config-input-password"
+    class="config-input-affix-wrapper config-input-password config-input-affix-wrapper-lg"
   >
     <input
       action="click"
@@ -13859,7 +13889,7 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
           class="config-input-group-addon"
         >
           <button
-            class="config-btn config-btn-icon-only config-input-search-button"
+            class="config-btn config-btn-default config-btn-icon-only config-input-search-button"
             type="button"
           >
             <span
@@ -13954,7 +13984,7 @@ exports[`ConfigProvider components Input configProvider virtual and dropdownMatc
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -14049,7 +14079,7 @@ exports[`ConfigProvider components Input normal 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -14144,7 +14174,7 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-icon-only prefix-Input-button"
+            class="ant-btn ant-btn-default ant-btn-icon-only prefix-Input-button"
             type="button"
           >
             <span
@@ -15576,12 +15606,12 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
     />
     <div
       class="config-modal-wrap"
-      role="dialog"
       tabindex="-1"
     >
       <div
+        aria-modal="true"
         class="config-modal"
-        role="document"
+        role="dialog"
         style="width:520px"
       >
         <div
@@ -15630,7 +15660,7 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
             class="config-modal-footer"
           >
             <button
-              class="config-btn"
+              class="config-btn config-btn-default"
               type="button"
             >
               <span>
@@ -15668,12 +15698,12 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
     />
     <div
       class="config-modal-wrap"
-      role="dialog"
       tabindex="-1"
     >
       <div
+        aria-modal="true"
         class="config-modal"
-        role="document"
+        role="dialog"
         style="width:520px"
       >
         <div
@@ -15722,7 +15752,7 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
             class="config-modal-footer"
           >
             <button
-              class="config-btn config-btn-lg"
+              class="config-btn config-btn-default config-btn-lg"
               type="button"
             >
               <span>
@@ -15760,12 +15790,12 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
     />
     <div
       class="config-modal-wrap"
-      role="dialog"
       tabindex="-1"
     >
       <div
+        aria-modal="true"
         class="config-modal"
-        role="document"
+        role="dialog"
         style="width:520px"
       >
         <div
@@ -15814,7 +15844,7 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
             class="config-modal-footer"
           >
             <button
-              class="config-btn"
+              class="config-btn config-btn-default"
               type="button"
             >
               <span>
@@ -15852,12 +15882,12 @@ exports[`ConfigProvider components Modal configProvider virtual and dropdownMatc
     />
     <div
       class="ant-modal-wrap"
-      role="dialog"
       tabindex="-1"
     >
       <div
+        aria-modal="true"
         class="ant-modal"
-        role="document"
+        role="dialog"
         style="width:520px"
       >
         <div
@@ -15906,7 +15936,7 @@ exports[`ConfigProvider components Modal configProvider virtual and dropdownMatc
             class="ant-modal-footer"
           >
             <button
-              class="ant-btn"
+              class="ant-btn ant-btn-default"
               type="button"
             >
               <span>
@@ -15944,12 +15974,12 @@ exports[`ConfigProvider components Modal normal 1`] = `
     />
     <div
       class="ant-modal-wrap"
-      role="dialog"
       tabindex="-1"
     >
       <div
+        aria-modal="true"
         class="ant-modal"
-        role="document"
+        role="dialog"
         style="width:520px"
       >
         <div
@@ -15998,7 +16028,7 @@ exports[`ConfigProvider components Modal normal 1`] = `
             class="ant-modal-footer"
           >
             <button
-              class="ant-btn"
+              class="ant-btn ant-btn-default"
               type="button"
             >
               <span>
@@ -16036,12 +16066,12 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
     />
     <div
       class="prefix-Modal-wrap"
-      role="dialog"
       tabindex="-1"
     >
       <div
+        aria-modal="true"
         class="prefix-Modal"
-        role="document"
+        role="dialog"
         style="width:520px"
       >
         <div
@@ -16090,7 +16120,7 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
             class="prefix-Modal-footer"
           >
             <button
-              class="ant-btn"
+              class="ant-btn ant-btn-default"
               type="button"
             >
               <span>
@@ -16341,6 +16371,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       class="config-pagination-options"
     >
       <div
+        aria-label="Page Size"
         class="config-select config-pagination-options-size-changer config-select-single config-select-show-arrow"
       >
         <div
@@ -16353,7 +16384,9 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
               aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Page Size"
               aria-owns="undefined_list"
               autocomplete="off"
               class="config-select-selection-search-input"
@@ -16398,15 +16431,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             </svg>
           </span>
         </span>
-      </div>
-      <div
-        class="config-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          type="text"
-          value=""
-        />
       </div>
     </li>
   </ul>
@@ -16493,6 +16517,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       class="config-pagination-options"
     >
       <div
+        aria-label="Page Size"
         class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow"
       >
         <div
@@ -16505,7 +16530,9 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
               aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Page Size"
               aria-owns="undefined_list"
               autocomplete="off"
               class="config-select-selection-search-input"
@@ -16550,15 +16577,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             </svg>
           </span>
         </span>
-      </div>
-      <div
-        class="config-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          type="text"
-          value=""
-        />
       </div>
     </li>
   </ul>
@@ -16650,7 +16668,8 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       class="config-pagination-options"
     >
       <div
-        class="config-select config-select-lg config-pagination-options-size-changer config-select-single config-select-show-arrow"
+        aria-label="Page Size"
+        class="config-select config-pagination-options-size-changer config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -16662,7 +16681,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
               aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Page Size"
               aria-owns="undefined_list"
               autocomplete="off"
               class="config-select-selection-search-input"
@@ -16707,15 +16728,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
             </svg>
           </span>
         </span>
-      </div>
-      <div
-        class="config-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          type="text"
-          value=""
-        />
       </div>
     </li>
   </ul>
@@ -16802,6 +16814,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       class="config-pagination-options"
     >
       <div
+        aria-label="Page Size"
         class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow"
       >
         <div
@@ -16814,7 +16827,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
               aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Page Size"
               aria-owns="undefined_list"
               autocomplete="off"
               class="config-select-selection-search-input"
@@ -16859,15 +16874,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
             </svg>
           </span>
         </span>
-      </div>
-      <div
-        class="config-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          type="text"
-          value=""
-        />
       </div>
     </li>
   </ul>
@@ -16959,6 +16965,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
       class="config-pagination-options"
     >
       <div
+        aria-label="Page Size"
         class="config-select config-pagination-options-size-changer config-select-single config-select-show-arrow"
       >
         <div
@@ -16971,7 +16978,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
               aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Page Size"
               aria-owns="undefined_list"
               autocomplete="off"
               class="config-select-selection-search-input"
@@ -17016,15 +17025,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
             </svg>
           </span>
         </span>
-      </div>
-      <div
-        class="config-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          type="text"
-          value=""
-        />
       </div>
     </li>
   </ul>
@@ -17111,6 +17111,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
       class="config-pagination-options"
     >
       <div
+        aria-label="Page Size"
         class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow"
       >
         <div
@@ -17123,7 +17124,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
               aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Page Size"
               aria-owns="undefined_list"
               autocomplete="off"
               class="config-select-selection-search-input"
@@ -17168,15 +17171,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
             </svg>
           </span>
         </span>
-      </div>
-      <div
-        class="config-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          type="text"
-          value=""
-        />
       </div>
     </li>
   </ul>
@@ -17268,6 +17262,7 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
       class="ant-pagination-options"
     >
       <div
+        aria-label="Page Size"
         class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
       >
         <div
@@ -17280,7 +17275,9 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
               aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Page Size"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -17325,15 +17322,6 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
             </svg>
           </span>
         </span>
-      </div>
-      <div
-        class="ant-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          type="text"
-          value=""
-        />
       </div>
     </li>
   </ul>
@@ -17420,6 +17408,7 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
       class="ant-pagination-options"
     >
       <div
+        aria-label="Page Size"
         class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
       >
         <div
@@ -17432,7 +17421,9 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
               aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Page Size"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -17477,15 +17468,6 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
             </svg>
           </span>
         </span>
-      </div>
-      <div
-        class="ant-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          type="text"
-          value=""
-        />
       </div>
     </li>
   </ul>
@@ -17577,6 +17559,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       class="ant-pagination-options"
     >
       <div
+        aria-label="Page Size"
         class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
       >
         <div
@@ -17589,7 +17572,9 @@ exports[`ConfigProvider components Pagination normal 1`] = `
               aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Page Size"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -17634,15 +17619,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             </svg>
           </span>
         </span>
-      </div>
-      <div
-        class="ant-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          type="text"
-          value=""
-        />
       </div>
     </li>
   </ul>
@@ -17729,6 +17705,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       class="ant-pagination-options"
     >
       <div
+        aria-label="Page Size"
         class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
       >
         <div
@@ -17741,7 +17718,9 @@ exports[`ConfigProvider components Pagination normal 1`] = `
               aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Page Size"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -17786,15 +17765,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             </svg>
           </span>
         </span>
-      </div>
-      <div
-        class="ant-pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          type="text"
-          value=""
-        />
       </div>
     </li>
   </ul>
@@ -17886,6 +17856,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       class="prefix-Pagination-options"
     >
       <div
+        aria-label="Page Size"
         class="ant-select prefix-Pagination-options-size-changer ant-select-single ant-select-show-arrow"
       >
         <div
@@ -17898,7 +17869,9 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
               aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Page Size"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -17943,15 +17916,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             </svg>
           </span>
         </span>
-      </div>
-      <div
-        class="prefix-Pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          type="text"
-          value=""
-        />
       </div>
     </li>
   </ul>
@@ -18038,6 +18002,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       class="prefix-Pagination-options"
     >
       <div
+        aria-label="Page Size"
         class="ant-select ant-select-sm prefix-Pagination-options-size-changer ant-select-single ant-select-show-arrow"
       >
         <div
@@ -18050,7 +18015,9 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
               aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Page Size"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -18096,15 +18063,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
           </span>
         </span>
       </div>
-      <div
-        class="prefix-Pagination-options-quick-jumper"
-      >
-        Go to
-        <input
-          type="text"
-          value=""
-        />
-      </div>
     </li>
   </ul>
 </div>
@@ -18120,7 +18078,7 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
   <div>
     <div
       class="config-popover config-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-popover-content"
@@ -18169,7 +18127,7 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
               class="config-popover-buttons"
             >
               <button
-                class="config-btn config-btn-sm"
+                class="config-btn config-btn-default config-btn-sm"
                 type="button"
               >
                 <span>
@@ -18203,7 +18161,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
   <div>
     <div
       class="config-popover config-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-popover-content"
@@ -18252,7 +18210,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
               class="config-popover-buttons"
             >
               <button
-                class="config-btn config-btn-sm"
+                class="config-btn config-btn-default config-btn-sm"
                 type="button"
               >
                 <span>
@@ -18286,7 +18244,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
   <div>
     <div
       class="config-popover config-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-popover-content"
@@ -18335,7 +18293,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
               class="config-popover-buttons"
             >
               <button
-                class="config-btn config-btn-sm"
+                class="config-btn config-btn-default config-btn-sm"
                 type="button"
               >
                 <span>
@@ -18369,7 +18327,7 @@ exports[`ConfigProvider components Popconfirm configProvider virtual and dropdow
   <div>
     <div
       class="ant-popover ant-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -18418,7 +18376,7 @@ exports[`ConfigProvider components Popconfirm configProvider virtual and dropdow
               class="ant-popover-buttons"
             >
               <button
-                class="ant-btn ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -18452,7 +18410,7 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
   <div>
     <div
       class="ant-popover ant-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -18501,7 +18459,7 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
               class="ant-popover-buttons"
             >
               <button
-                class="ant-btn ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -18535,7 +18493,7 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
   <div>
     <div
       class="prefix-Popconfirm prefix-Popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="prefix-Popconfirm-content"
@@ -18584,7 +18542,7 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
               class="prefix-Popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -18618,7 +18576,7 @@ exports[`ConfigProvider components Popover configProvider 1`] = `
   <div>
     <div
       class="config-popover"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-popover-content"
@@ -18633,11 +18591,7 @@ exports[`ConfigProvider components Popover configProvider 1`] = `
         <div
           class="config-popover-inner"
           role="tooltip"
-        >
-          <div
-            class="config-popover-inner-content"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -18654,7 +18608,7 @@ exports[`ConfigProvider components Popover configProvider componentSize large 1`
   <div>
     <div
       class="config-popover"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-popover-content"
@@ -18669,11 +18623,7 @@ exports[`ConfigProvider components Popover configProvider componentSize large 1`
         <div
           class="config-popover-inner"
           role="tooltip"
-        >
-          <div
-            class="config-popover-inner-content"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -18690,7 +18640,7 @@ exports[`ConfigProvider components Popover configProvider componentSize middle 1
   <div>
     <div
       class="config-popover"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-popover-content"
@@ -18705,11 +18655,7 @@ exports[`ConfigProvider components Popover configProvider componentSize middle 1
         <div
           class="config-popover-inner"
           role="tooltip"
-        >
-          <div
-            class="config-popover-inner-content"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -18726,7 +18672,7 @@ exports[`ConfigProvider components Popover configProvider virtual and dropdownMa
   <div>
     <div
       class="ant-popover"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -18741,11 +18687,7 @@ exports[`ConfigProvider components Popover configProvider virtual and dropdownMa
         <div
           class="ant-popover-inner"
           role="tooltip"
-        >
-          <div
-            class="ant-popover-inner-content"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -18762,7 +18704,7 @@ exports[`ConfigProvider components Popover normal 1`] = `
   <div>
     <div
       class="ant-popover"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -18777,11 +18719,7 @@ exports[`ConfigProvider components Popover normal 1`] = `
         <div
           class="ant-popover-inner"
           role="tooltip"
-        >
-          <div
-            class="ant-popover-inner-content"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -18798,7 +18736,7 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
   <div>
     <div
       class="prefix-Popover"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="prefix-Popover-content"
@@ -18813,11 +18751,7 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
         <div
           class="prefix-Popover-inner"
           role="tooltip"
-        >
-          <div
-            class="prefix-Popover-inner-content"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -18836,7 +18770,7 @@ exports[`ConfigProvider components Progress configProvider 1`] = `
     >
       <div
         class="config-progress-bg"
-        style="width:0%;height:8px;border-radius:"
+        style="width:0%;height:8px"
       />
     </div>
   </div>
@@ -18861,7 +18795,7 @@ exports[`ConfigProvider components Progress configProvider componentSize large 1
     >
       <div
         class="config-progress-bg"
-        style="width:0%;height:8px;border-radius:"
+        style="width:0%;height:8px"
       />
     </div>
   </div>
@@ -18886,7 +18820,7 @@ exports[`ConfigProvider components Progress configProvider componentSize middle 
     >
       <div
         class="config-progress-bg"
-        style="width:0%;height:8px;border-radius:"
+        style="width:0%;height:8px"
       />
     </div>
   </div>
@@ -18911,7 +18845,7 @@ exports[`ConfigProvider components Progress configProvider virtual and dropdownM
     >
       <div
         class="ant-progress-bg"
-        style="width:0%;height:8px;border-radius:"
+        style="width:0%;height:8px"
       />
     </div>
   </div>
@@ -18936,7 +18870,7 @@ exports[`ConfigProvider components Progress normal 1`] = `
     >
       <div
         class="ant-progress-bg"
-        style="width:0%;height:8px;border-radius:"
+        style="width:0%;height:8px"
       />
     </div>
   </div>
@@ -18961,7 +18895,7 @@ exports[`ConfigProvider components Progress prefixCls 1`] = `
     >
       <div
         class="prefix-Progress-bg"
-        style="width:0%;height:8px;border-radius:"
+        style="width:0%;height:8px"
       />
     </div>
   </div>
@@ -19258,18 +19192,18 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
     class="prefix-Radio-group prefix-Radio-group-outline"
   >
     <label
-      class="prefix-Radio-wrapper prefix-Radio-wrapper-checked"
+      class="prefix-Radio-button-wrapper prefix-Radio-button-wrapper-checked"
     >
       <span
-        class="prefix-Radio prefix-Radio-checked"
+        class="prefix-Radio-button prefix-Radio-button-checked"
       >
         <input
           checked=""
-          class="prefix-Radio-input"
+          class="prefix-Radio-button-input"
           type="radio"
         />
         <span
-          class="prefix-Radio-inner"
+          class="prefix-Radio-button-inner"
         />
       </span>
       <span>
@@ -21108,7 +21042,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
   <div>
     <div
       class="config-select-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div
@@ -21119,7 +21053,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
           <div
             aria-selected="false"
             id="undefined_list_0"
-            role="option"
+            role="presentation"
           />
           <div
             aria-label="Light"
@@ -21145,6 +21079,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
               >
                 <div
                   class="config-select-item config-select-item-group"
+                  title="grp"
                 >
                   grp
                 </div>
@@ -21235,7 +21170,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
   <div>
     <div
       class="config-select-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div
@@ -21246,7 +21181,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
           <div
             aria-selected="false"
             id="undefined_list_0"
-            role="option"
+            role="presentation"
           />
           <div
             aria-label="Light"
@@ -21272,6 +21207,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
               >
                 <div
                   class="config-select-item config-select-item-group"
+                  title="grp"
                 >
                   grp
                 </div>
@@ -21362,7 +21298,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
   <div>
     <div
       class="config-select-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div
@@ -21373,7 +21309,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
           <div
             aria-selected="false"
             id="undefined_list_0"
-            role="option"
+            role="presentation"
           />
           <div
             aria-label="Light"
@@ -21399,6 +21335,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
               >
                 <div
                   class="config-select-item config-select-item-group"
+                  title="grp"
                 >
                   grp
                 </div>
@@ -21489,7 +21426,7 @@ exports[`ConfigProvider components Select configProvider virtual and dropdownMat
   <div>
     <div
       class="ant-select-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div
@@ -21500,7 +21437,7 @@ exports[`ConfigProvider components Select configProvider virtual and dropdownMat
           <div
             aria-selected="false"
             id="undefined_list_0"
-            role="option"
+            role="presentation"
           />
           <div
             aria-label="Light"
@@ -21526,6 +21463,7 @@ exports[`ConfigProvider components Select configProvider virtual and dropdownMat
               >
                 <div
                   class="ant-select-item ant-select-item-group"
+                  title="grp"
                 >
                   grp
                 </div>
@@ -21616,7 +21554,7 @@ exports[`ConfigProvider components Select normal 1`] = `
   <div>
     <div
       class="ant-select-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div
@@ -21627,7 +21565,7 @@ exports[`ConfigProvider components Select normal 1`] = `
           <div
             aria-selected="false"
             id="undefined_list_0"
-            role="option"
+            role="presentation"
           />
           <div
             aria-label="Light"
@@ -21653,6 +21591,7 @@ exports[`ConfigProvider components Select normal 1`] = `
               >
                 <div
                   class="ant-select-item ant-select-item-group"
+                  title="grp"
                 >
                   grp
                 </div>
@@ -21743,7 +21682,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
   <div>
     <div
       class="prefix-Select-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div
@@ -21754,7 +21693,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
           <div
             aria-selected="false"
             id="undefined_list_0"
-            role="option"
+            role="presentation"
           />
           <div
             aria-label="Light"
@@ -21780,6 +21719,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
               >
                 <div
                   class="prefix-Select-item prefix-Select-item-group"
+                  title="grp"
                 >
                   grp
                 </div>
@@ -22006,14 +21946,14 @@ exports[`ConfigProvider components Skeleton prefixCls 1`] = `
 
 exports[`ConfigProvider components Slider configProvider 1`] = `
 <div
-  class="config-slider"
+  class="config-slider config-slider-horizontal"
 >
   <div
     class="config-slider-rail"
   />
   <div
     class="config-slider-track"
-    style="left:0%;right:auto;width:0%"
+    style="left:0%;width:0%"
   />
   <div
     class="config-slider-step"
@@ -22025,13 +21965,13 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
     aria-valuenow="0"
     class="config-slider-handle config-tooltip-open"
     role="slider"
-    style="left:0%;right:auto;transform:translateX(-50%)"
+    style="left:0%;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
     <div
       class="config-tooltip config-slider-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-tooltip-content"
@@ -22052,22 +21992,19 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
       </div>
     </div>
   </div>
-  <div
-    class="config-slider-mark"
-  />
 </div>
 `;
 
 exports[`ConfigProvider components Slider configProvider componentSize large 1`] = `
 <div
-  class="config-slider"
+  class="config-slider config-slider-horizontal"
 >
   <div
     class="config-slider-rail"
   />
   <div
     class="config-slider-track"
-    style="left:0%;right:auto;width:0%"
+    style="left:0%;width:0%"
   />
   <div
     class="config-slider-step"
@@ -22079,13 +22016,13 @@ exports[`ConfigProvider components Slider configProvider componentSize large 1`]
     aria-valuenow="0"
     class="config-slider-handle config-tooltip-open"
     role="slider"
-    style="left:0%;right:auto;transform:translateX(-50%)"
+    style="left:0%;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
     <div
       class="config-tooltip config-slider-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-tooltip-content"
@@ -22106,22 +22043,19 @@ exports[`ConfigProvider components Slider configProvider componentSize large 1`]
       </div>
     </div>
   </div>
-  <div
-    class="config-slider-mark"
-  />
 </div>
 `;
 
 exports[`ConfigProvider components Slider configProvider componentSize middle 1`] = `
 <div
-  class="config-slider"
+  class="config-slider config-slider-horizontal"
 >
   <div
     class="config-slider-rail"
   />
   <div
     class="config-slider-track"
-    style="left:0%;right:auto;width:0%"
+    style="left:0%;width:0%"
   />
   <div
     class="config-slider-step"
@@ -22133,13 +22067,13 @@ exports[`ConfigProvider components Slider configProvider componentSize middle 1`
     aria-valuenow="0"
     class="config-slider-handle config-tooltip-open"
     role="slider"
-    style="left:0%;right:auto;transform:translateX(-50%)"
+    style="left:0%;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
     <div
       class="config-tooltip config-slider-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-tooltip-content"
@@ -22160,22 +22094,19 @@ exports[`ConfigProvider components Slider configProvider componentSize middle 1`
       </div>
     </div>
   </div>
-  <div
-    class="config-slider-mark"
-  />
 </div>
 `;
 
 exports[`ConfigProvider components Slider configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
-  class="ant-slider"
+  class="ant-slider ant-slider-horizontal"
 >
   <div
     class="ant-slider-rail"
   />
   <div
     class="ant-slider-track"
-    style="left:0%;right:auto;width:0%"
+    style="left:0%;width:0%"
   />
   <div
     class="ant-slider-step"
@@ -22187,13 +22118,13 @@ exports[`ConfigProvider components Slider configProvider virtual and dropdownMat
     aria-valuenow="0"
     class="ant-slider-handle ant-tooltip-open"
     role="slider"
-    style="left:0%;right:auto;transform:translateX(-50%)"
+    style="left:0%;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
     <div
       class="ant-tooltip ant-slider-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -22214,22 +22145,19 @@ exports[`ConfigProvider components Slider configProvider virtual and dropdownMat
       </div>
     </div>
   </div>
-  <div
-    class="ant-slider-mark"
-  />
 </div>
 `;
 
 exports[`ConfigProvider components Slider normal 1`] = `
 <div
-  class="ant-slider"
+  class="ant-slider ant-slider-horizontal"
 >
   <div
     class="ant-slider-rail"
   />
   <div
     class="ant-slider-track"
-    style="left:0%;right:auto;width:0%"
+    style="left:0%;width:0%"
   />
   <div
     class="ant-slider-step"
@@ -22241,13 +22169,13 @@ exports[`ConfigProvider components Slider normal 1`] = `
     aria-valuenow="0"
     class="ant-slider-handle ant-tooltip-open"
     role="slider"
-    style="left:0%;right:auto;transform:translateX(-50%)"
+    style="left:0%;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
     <div
       class="ant-tooltip ant-slider-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -22268,22 +22196,19 @@ exports[`ConfigProvider components Slider normal 1`] = `
       </div>
     </div>
   </div>
-  <div
-    class="ant-slider-mark"
-  />
 </div>
 `;
 
 exports[`ConfigProvider components Slider prefixCls 1`] = `
 <div
-  class="prefix-Slider"
+  class="prefix-Slider prefix-Slider-horizontal"
 >
   <div
     class="prefix-Slider-rail"
   />
   <div
     class="prefix-Slider-track"
-    style="left:0%;right:auto;width:0%"
+    style="left:0%;width:0%"
   />
   <div
     class="prefix-Slider-step"
@@ -22295,13 +22220,13 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
     aria-valuenow="0"
     class="prefix-Slider-handle prefix-Slider-tooltip-open"
     role="slider"
-    style="left:0%;right:auto;transform:translateX(-50%)"
+    style="left:0%;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
     <div
       class="prefix-Slider-tooltip prefix-Slider-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="prefix-Slider-tooltip-content"
@@ -22322,14 +22247,13 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
       </div>
     </div>
   </div>
-  <div
-    class="prefix-Slider-mark"
-  />
 </div>
 `;
 
 exports[`ConfigProvider components Spin configProvider 1`] = `
 <div
+  aria-busy="true"
+  aria-live="polite"
   class="config-spin config-spin-spinning"
 >
   <span
@@ -22353,6 +22277,8 @@ exports[`ConfigProvider components Spin configProvider 1`] = `
 
 exports[`ConfigProvider components Spin configProvider componentSize large 1`] = `
 <div
+  aria-busy="true"
+  aria-live="polite"
   class="config-spin config-spin-spinning"
 >
   <span
@@ -22376,6 +22302,8 @@ exports[`ConfigProvider components Spin configProvider componentSize large 1`] =
 
 exports[`ConfigProvider components Spin configProvider componentSize middle 1`] = `
 <div
+  aria-busy="true"
+  aria-live="polite"
   class="config-spin config-spin-spinning"
 >
   <span
@@ -22399,6 +22327,8 @@ exports[`ConfigProvider components Spin configProvider componentSize middle 1`] 
 
 exports[`ConfigProvider components Spin configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
+  aria-busy="true"
+  aria-live="polite"
   class="ant-spin ant-spin-spinning"
 >
   <span
@@ -22422,6 +22352,8 @@ exports[`ConfigProvider components Spin configProvider virtual and dropdownMatch
 
 exports[`ConfigProvider components Spin normal 1`] = `
 <div
+  aria-busy="true"
+  aria-live="polite"
   class="ant-spin ant-spin-spinning"
 >
   <span
@@ -22445,6 +22377,8 @@ exports[`ConfigProvider components Spin normal 1`] = `
 
 exports[`ConfigProvider components Spin prefixCls 1`] = `
 <div
+  aria-busy="true"
+  aria-live="polite"
   class="prefix-Spin prefix-Spin-spinning"
 >
   <span
@@ -22957,6 +22891,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                 <tr>
                   <th
                     class="config-table-cell config-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="config-table-filter-column"
@@ -23021,7 +22956,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                         </div>
                       </span>
                       <span
-                        class="config-dropdown-trigger config-table-filter-trigger"
+                        class="config-dropdown-trigger config-table-filter-trigger config-dropdown-open"
                         role="button"
                         tabindex="-1"
                       >
@@ -23048,7 +22983,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                       <div>
                         <div
                           class="config-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="config-table-filter-dropdown"
@@ -23237,6 +23172,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                 <tr>
                   <th
                     class="config-table-cell config-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="config-table-filter-column"
@@ -23301,7 +23237,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                         </div>
                       </span>
                       <span
-                        class="config-dropdown-trigger config-table-filter-trigger"
+                        class="config-dropdown-trigger config-table-filter-trigger config-dropdown-open"
                         role="button"
                         tabindex="-1"
                       >
@@ -23328,7 +23264,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                       <div>
                         <div
                           class="config-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="config-table-filter-dropdown"
@@ -23517,6 +23453,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                 <tr>
                   <th
                     class="config-table-cell config-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="config-table-filter-column"
@@ -23581,7 +23518,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                         </div>
                       </span>
                       <span
-                        class="config-dropdown-trigger config-table-filter-trigger"
+                        class="config-dropdown-trigger config-table-filter-trigger config-dropdown-open"
                         role="button"
                         tabindex="-1"
                       >
@@ -23608,7 +23545,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                       <div>
                         <div
                           class="config-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="config-table-filter-dropdown"
@@ -23797,6 +23734,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                 <tr>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -23861,7 +23799,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                         </div>
                       </span>
                       <span
-                        class="ant-dropdown-trigger ant-table-filter-trigger"
+                        class="ant-dropdown-trigger ant-table-filter-trigger ant-dropdown-open"
                         role="button"
                         tabindex="-1"
                       >
@@ -23888,7 +23826,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -24077,6 +24015,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                 <tr>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -24141,7 +24080,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                         </div>
                       </span>
                       <span
-                        class="ant-dropdown-trigger ant-table-filter-trigger"
+                        class="ant-dropdown-trigger ant-table-filter-trigger ant-dropdown-open"
                         role="button"
                         tabindex="-1"
                       >
@@ -24168,7 +24107,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -24357,6 +24296,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                 <tr>
                   <th
                     class="prefix-Table-cell prefix-Table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="prefix-Table-filter-column"
@@ -24421,7 +24361,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                         </div>
                       </span>
                       <span
-                        class="ant-dropdown-trigger prefix-Table-filter-trigger"
+                        class="ant-dropdown-trigger prefix-Table-filter-trigger ant-dropdown-open"
                         role="button"
                         tabindex="-1"
                       >
@@ -24448,7 +24388,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="prefix-Table-filter-dropdown"
@@ -25255,7 +25195,7 @@ Array [
   <div>
     <div
       class="config-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-picker-panel-container"
@@ -26606,7 +26546,7 @@ Array [
                   type="button"
                 >
                   <span>
-                    Ok
+                    OK
                   </span>
                 </button>
               </li>
@@ -26666,7 +26606,7 @@ Array [
   <div>
     <div
       class="config-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-picker-panel-container"
@@ -28017,7 +27957,7 @@ Array [
                   type="button"
                 >
                   <span>
-                    Ok
+                    OK
                   </span>
                 </button>
               </li>
@@ -28077,7 +28017,7 @@ Array [
   <div>
     <div
       class="config-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-picker-panel-container"
@@ -29428,7 +29368,7 @@ Array [
                   type="button"
                 >
                   <span>
-                    Ok
+                    OK
                   </span>
                 </button>
               </li>
@@ -29488,7 +29428,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-panel-container"
@@ -30839,7 +30779,7 @@ Array [
                   type="button"
                 >
                   <span>
-                    Ok
+                    OK
                   </span>
                 </button>
               </li>
@@ -30899,7 +30839,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-panel-container"
@@ -32250,7 +32190,7 @@ Array [
                   type="button"
                 >
                   <span>
-                    Ok
+                    OK
                   </span>
                 </button>
               </li>
@@ -32310,7 +32250,7 @@ Array [
   <div>
     <div
       class="prefix-TimePicker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="prefix-TimePicker-panel-container"
@@ -33661,7 +33601,7 @@ Array [
                   type="button"
                 >
                   <span>
-                    Ok
+                    OK
                   </span>
                 </button>
               </li>
@@ -33816,7 +33756,7 @@ Array [
   <div>
     <div
       class="config-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-tooltip-content"
@@ -33850,7 +33790,7 @@ Array [
   <div>
     <div
       class="config-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-tooltip-content"
@@ -33884,7 +33824,7 @@ Array [
   <div>
     <div
       class="config-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-tooltip-content"
@@ -33918,7 +33858,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -33952,7 +33892,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -33986,7 +33926,7 @@ Array [
   <div>
     <div
       class="prefix-Tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="prefix-Tooltip-content"
@@ -36583,7 +36523,6 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
       class="config-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="true"
@@ -36606,7 +36545,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
   <div>
     <div
       class="config-select-dropdown config-tree-select-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div>
@@ -36720,7 +36659,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
       class="config-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="true"
@@ -36743,7 +36681,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
   <div>
     <div
       class="config-select-dropdown config-tree-select-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div>
@@ -36857,7 +36795,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
       class="config-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="true"
@@ -36880,7 +36817,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
   <div>
     <div
       class="config-select-dropdown config-tree-select-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div>
@@ -36994,7 +36931,6 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="true"
@@ -37017,7 +36953,7 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
   <div>
     <div
       class="ant-select-dropdown ant-tree-select-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div>
@@ -37131,7 +37067,6 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="true"
@@ -37154,7 +37089,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
   <div>
     <div
       class="ant-select-dropdown ant-tree-select-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div>
@@ -37268,7 +37203,6 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
       class="prefix-TreeSelect-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
         aria-expanded="true"
@@ -37291,7 +37225,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
   <div>
     <div
       class="prefix-TreeSelect-dropdown prefix-TreeSelect-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div>
@@ -37925,22 +37859,22 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
     </span>
   </div>
   <div
-    class="ant-upload-list ant-upload-list-text"
+    class="prefix-Upload-list prefix-Upload-list-text"
   >
     <div
-      class="ant-upload-list-text-container"
+      class="prefix-Upload-list-text-container"
     >
       <div
-        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
+        class="prefix-Upload-list-item prefix-Upload-list-item-done prefix-Upload-list-item-list-type-text"
       >
         <div
-          class="ant-upload-list-item-info"
+          class="prefix-Upload-list-item-info"
         >
           <span
-            class="ant-upload-span"
+            class="prefix-Upload-span"
           >
             <div
-              class="ant-upload-text-icon"
+              class="prefix-Upload-text-icon"
             >
               <span
                 aria-label="paper-clip"
@@ -37963,16 +37897,16 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
               </span>
             </div>
             <span
-              class="ant-upload-list-item-name"
+              class="prefix-Upload-list-item-name"
               title="xxx.png"
             >
               xxx.png
             </span>
             <span
-              class="ant-upload-list-item-card-actions"
+              class="prefix-Upload-list-item-card-actions"
             >
               <button
-                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
+                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only prefix-Upload-list-item-card-actions-btn"
                 title="Remove file"
                 type="button"
               >

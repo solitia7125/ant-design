@@ -68,18 +68,66 @@ describe('Table.sorter', () => {
       ),
     );
 
+    const getNameColumn = () => wrapper.find('th').at(0);
+
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
+    expect(getNameColumn().prop('aria-sort')).toEqual('descending');
+  });
+
+  it('should change aria-sort when default sort order is set to descend', () => {
+    const wrapper = mount(
+      createTable(
+        {
+          sortDirections: ['descend', 'ascend'],
+        },
+        {
+          defaultSortOrder: 'descend',
+        },
+      ),
+    );
+
+    const getNameColumn = () => wrapper.find('th').at(0);
+
+    // Test that it cycles through the order of sortDirections
+    expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
+    expect(getNameColumn().prop('aria-sort')).toEqual('descending');
+
+    wrapper.find('.ant-table-column-sorters').simulate('click');
+    expect(getNameColumn().prop('aria-sort')).toEqual('ascending');
+
+    wrapper.find('.ant-table-column-sorters').simulate('click');
+    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
   });
 
   it('sort records', () => {
     const wrapper = mount(createTable());
 
+    const getNameColumn = () => wrapper.find('th').at(0);
+
+    // first assert default state
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
+
     // ascend
     wrapper.find('.ant-table-column-sorters').simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
+    expect(getNameColumn().prop('aria-sort')).toEqual('ascending');
 
     // descend
     wrapper.find('.ant-table-column-sorters').simulate('click');
+    expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
+    expect(getNameColumn().prop('aria-sort')).toEqual('descending');
+  });
+
+  it('sort records with keydown', () => {
+    const wrapper = mount(createTable());
+
+    // ascend
+    wrapper.find('.ant-table-column-sorters').simulate('keydown', { keyCode: 13 });
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
+
+    // descend
+    wrapper.find('.ant-table-column-sorters').simulate('keydown', { keyCode: 13 });
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
   });
 
@@ -333,12 +381,16 @@ describe('Table.sorter', () => {
     // sort name
     getNameColumn().simulate('click');
     expect(getNameIcon('up').hasClass('active')).toBeTruthy();
+    expect(getNameColumn().prop('aria-sort')).toEqual('ascending');
     expect(getAgeIcon('up').hasClass('active')).toBeFalsy();
+    expect(getAgeColumn().prop('aria-sort')).toEqual(undefined);
 
     // sort age
     getAgeColumn().simulate('click');
     expect(getNameIcon('up').hasClass('active')).toBeFalsy();
+    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
     expect(getAgeIcon('up').hasClass('active')).toBeTruthy();
+    expect(getAgeColumn().prop('aria-sort')).toEqual('ascending');
   });
 
   // https://github.com/ant-design/ant-design/issues/12571
@@ -380,7 +432,7 @@ describe('Table.sorter', () => {
 
     const wrapper = mount(<TableTest />);
 
-    const getNameColumn = () => wrapper.find('.ant-table-column-has-sorters').at(0);
+    const getNameColumn = () => wrapper.find('th').at(0);
     const getIcon = name => getNameColumn().find(`.ant-table-column-sorter-${name}`).first();
 
     expect(getIcon('up').hasClass('active')).toBeFalsy();
@@ -390,16 +442,19 @@ describe('Table.sorter', () => {
     getNameColumn().simulate('click');
     expect(getIcon('up').hasClass('active')).toBeTruthy();
     expect(getIcon('down').hasClass('active')).toBeFalsy();
+    expect(getNameColumn().prop('aria-sort')).toEqual('ascending');
 
     // sort name
     getNameColumn().simulate('click');
     expect(getIcon('up').hasClass('active')).toBeFalsy();
     expect(getIcon('down').hasClass('active')).toBeTruthy();
+    expect(getNameColumn().prop('aria-sort')).toEqual('descending');
 
     // sort name
     getNameColumn().simulate('click');
     expect(getIcon('up').hasClass('active')).toBeFalsy();
     expect(getIcon('down').hasClass('active')).toBeFalsy();
+    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
   });
 
   // https://github.com/ant-design/ant-design/issues/12737
@@ -444,7 +499,7 @@ describe('Table.sorter', () => {
 
     const wrapper = mount(<TableTest />);
 
-    const getNameColumn = () => wrapper.find('.ant-table-column-has-sorters').at(0);
+    const getNameColumn = () => wrapper.find('th').at(0);
     const getIcon = name => getNameColumn().find(`.ant-table-column-sorter-${name}`).first();
 
     expect(getIcon('up').hasClass('active')).toBeFalsy();
@@ -454,16 +509,19 @@ describe('Table.sorter', () => {
     getNameColumn().simulate('click');
     expect(getIcon('up').hasClass('active')).toBeTruthy();
     expect(getIcon('down').hasClass('active')).toBeFalsy();
+    expect(getNameColumn().prop('aria-sort')).toEqual('ascending');
 
     // sort name
     getNameColumn().simulate('click');
     expect(getIcon('up').hasClass('active')).toBeFalsy();
     expect(getIcon('down').hasClass('active')).toBeTruthy();
+    expect(getNameColumn().prop('aria-sort')).toEqual('descending');
 
     // sort name
     getNameColumn().simulate('click');
     expect(getIcon('up').hasClass('active')).toBeFalsy();
     expect(getIcon('down').hasClass('active')).toBeFalsy();
+    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
   });
 
   // https://github.com/ant-design/ant-design/issues/12870
@@ -508,13 +566,14 @@ describe('Table.sorter', () => {
     }
 
     const wrapper = mount(<TableTest />);
-    const getNameColumn = () => wrapper.find('.ant-table-column-has-sorters').at(0);
+    const getNameColumn = () => wrapper.find('th').at(0);
     expect(
       getNameColumn().find('.ant-table-column-sorter-up').at(0).hasClass('active'),
     ).toBeFalsy();
     expect(
       getNameColumn().find('.ant-table-column-sorter-down').at(0).hasClass('active'),
     ).toBeFalsy();
+    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
 
     // sort name
     getNameColumn().simulate('click');
@@ -524,6 +583,7 @@ describe('Table.sorter', () => {
     expect(
       getNameColumn().find('.ant-table-column-sorter-down').at(0).hasClass('active'),
     ).toBeFalsy();
+    expect(getNameColumn().prop('aria-sort')).toEqual('ascending');
 
     // sort name
     getNameColumn().simulate('click');
@@ -533,6 +593,7 @@ describe('Table.sorter', () => {
     expect(
       getNameColumn().find('.ant-table-column-sorter-down').at(0).hasClass('active'),
     ).toBeTruthy();
+    expect(getNameColumn().prop('aria-sort')).toEqual('descending');
 
     // sort name
     getNameColumn().simulate('click');
@@ -542,6 +603,7 @@ describe('Table.sorter', () => {
     expect(
       getNameColumn().find('.ant-table-column-sorter-down').at(0).hasClass('active'),
     ).toBeFalsy();
+    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
   });
 
   it('should first sort by descend, then ascend, then cancel sort', () => {
@@ -550,18 +612,22 @@ describe('Table.sorter', () => {
         sortDirections: ['descend', 'ascend'],
       }),
     );
+    const getNameColumn = () => wrapper.find('th').at(0);
 
     // descend
-    wrapper.find('.ant-table-column-sorters').simulate('click');
+    getNameColumn().simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
+    expect(getNameColumn().prop('aria-sort')).toEqual('descending');
 
     // ascend
-    wrapper.find('.ant-table-column-sorters').simulate('click');
+    getNameColumn().simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
+    expect(getNameColumn().prop('aria-sort')).toEqual('ascending');
 
     // cancel sort
-    wrapper.find('.ant-table-column-sorters').simulate('click');
+    getNameColumn().simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
   });
 
   it('should first sort by descend, then cancel sort', () => {
@@ -571,13 +637,20 @@ describe('Table.sorter', () => {
       }),
     );
 
+    const getNameColumn = () => wrapper.find('th').at(0);
+
+    // default
+    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
+
     // descend
-    wrapper.find('.ant-table-column-sorters').simulate('click');
+    getNameColumn().simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
+    expect(getNameColumn().prop('aria-sort')).toEqual('descending');
 
     // cancel sort
-    wrapper.find('.ant-table-column-sorters').simulate('click');
+    getNameColumn().simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
   });
 
   it('should first sort by descend, then cancel sort. (column prop)', () => {
@@ -590,13 +663,20 @@ describe('Table.sorter', () => {
       ),
     );
 
+    const getNameColumn = () => wrapper.find('th').at(0);
+
+    // default
+    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
+
     // descend
-    wrapper.find('.ant-table-column-sorters').simulate('click');
+    getNameColumn().simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
+    expect(getNameColumn().prop('aria-sort')).toEqual('descending');
 
     // cancel sort
-    wrapper.find('.ant-table-column-sorters').simulate('click');
+    getNameColumn().simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
   });
 
   it('pagination back', () => {
@@ -614,9 +694,14 @@ describe('Table.sorter', () => {
       }),
     );
 
-    wrapper.find('.ant-table-column-sorters').simulate('click');
+    const getNameColumn = () => wrapper.find('th').at(0);
+
+    expect(getNameColumn().prop('aria-sort')).toEqual(undefined);
+
+    getNameColumn().simulate('click');
     expect(onChange.mock.calls[0][0].current).toBe(2);
     expect(onPageChange).not.toHaveBeenCalled();
+    expect(getNameColumn().prop('aria-sort')).toEqual('ascending');
   });
 
   it('should support onHeaderCell in sort column', () => {

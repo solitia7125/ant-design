@@ -130,11 +130,12 @@
   }
 
   &-title {
+    flex: 1;
     margin: 0;
     color: @heading-color;
     font-weight: 500;
-    font-size: @font-size-lg;
-    line-height: 22px;
+    font-size: @drawer-title-font-size;
+    line-height: @drawer-title-line-height;
   }
 
   &-content {
@@ -184,6 +185,7 @@
 
     &-title {
       display: flex;
+      flex: 1;
       align-items: center;
       justify-content: space-between;
     }
@@ -226,12 +228,6 @@
     opacity: 0;
     transition: opacity @animation-duration-slow linear, height 0s ease @animation-duration-slow;
     pointer-events: none;
-  }
-
-  &-open {
-    &-content {
-      box-shadow: @shadow-2;
-    }
   }
 
   // =================== Hook Components ===================

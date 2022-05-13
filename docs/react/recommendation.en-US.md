@@ -26,7 +26,7 @@ title: Third-Party Libraries
 | i18n | [FormatJS](https://github.com/formatjs/formatjs) [react-i18next](https://react.i18next.com) |
 | Code highlight | [react-syntax-highlighter](https://github.com/conorhastings/react-syntax-highlighter) |
 | Markdown renderer | [react-markdown](https://remarkjs.github.io/react-markdown/) |
-| Infinite Scroll | [rc-virtual-list](https://github.com/react-component/virtual-list/) [react-virtualized](https://github.com/bvaughn/react-virtualized) [react-infinite-scroll-component](https://github.com/ankeetmaini/react-infinite-scroll-component) |
+| Infinite Scroll | [rc-virtual-list](https://github.com/react-component/virtual-list/) [react-infinite-scroll-component](https://github.com/ankeetmaini/react-infinite-scroll-component) |
 | Map | [react-google-maps](https://github.com/tomchentw/react-google-maps) [google-map-react](https://github.com/istarkov/google-map-react) [react-amap](https://github.com/ElemeFE/react-amap) |
 | Video | [react-player](https://github.com/CookPete/react-player) [video-react](https://github.com/video-react/video-react) [video.js](http://docs.videojs.com/tutorial-react.html) |
 | Context Menu | [react-contextmenu](https://github.com/vkbansal/react-contextmenu/) [react-contexify](https://github.com/fkhadra/react-contexify) |
@@ -39,7 +39,8 @@ title: Third-Party Libraries
 | Animation | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://www.react-spring.io) |
 | Page Footer | [rc-footer](https://github.com/react-component/footer) |
 | Water Mark | [WaterMark](https://procomponents.ant.design/components/water-mark) |
-
+| Currency | [react-number-format](https://github.com/s-yadav/react-number-format) [react-currency-input-fiel](https://github.com/cchanxzy/react-currency-input-field) |
+| Application Frameworks | [refine](https://github.com/pankod/refine) |
 ## Products we are using ✨
 
 There are some products to recommend for developer/designer/product manager.

@@ -8,6 +8,8 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
+const { SHOW_CHILD, SHOW_PARENT } = Cascader;
+
 function toggleOpen(wrapper) {
   wrapper.find('.ant-select-selector').simulate('mousedown');
 }
@@ -368,6 +370,23 @@ describe('Cascader', () => {
     expect(wrapper.find('.ant-select-selection-placeholder').text()).toEqual(customPlaceholder);
   });
 
+  it('placement work correctly', () => {
+    const customerOptions = [
+      {
+        value: 'zhejiang',
+        label: 'Zhejiang',
+        children: [
+          {
+            value: 'hangzhou',
+            label: 'Hangzhou',
+          },
+        ],
+      },
+    ];
+    const wrapper = mount(<Cascader options={customerOptions} placement="topRight" />);
+    expect(wrapper.find('Trigger').prop('popupPlacement')).toEqual('topRight');
+  });
+
   it('popup correctly with defaultValue RTL', () => {
     const wrapper = mount(
       <ConfigProvider direction="rtl">
@@ -475,17 +494,156 @@ describe('Cascader', () => {
     expect(onChange).toHaveBeenCalledWith(['Zhejiang', 'Hangzhou', 'West Lake'], expect.anything());
   });
 
-  it('legacy props', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const wrapper = mount(<Cascader open popupPlacement="topRight" popupClassName="mock-cls" />);
+  it('rtl should work well with placement', () => {
+    const wrapper = mount(<Cascader options={options} direction="rtl" />);
 
-    expect(wrapper.exists('.mock-cls')).toBeTruthy();
-    expect(wrapper.find('Trigger').prop('popupPlacement')).toEqual('topRight');
+    expect(wrapper.find('Trigger').prop('popupPlacement')).toEqual('bottomRight');
+  });
 
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Cascader] `popupClassName` is deprecated. Please use `dropdownClassName` instead.',
-    );
+  describe('legacy props', () => {
+    it('popupClassName', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const wrapper = mount(
+        <Cascader open popupPlacement="bottomLeft" popupClassName="mock-cls" />,
+      );
 
-    errorSpy.mockRestore();
+      expect(wrapper.exists('.mock-cls')).toBeTruthy();
+      expect(wrapper.find('Trigger').prop('popupPlacement')).toEqual('bottomLeft');
+
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `popupClassName` is deprecated. Please use `dropdownClassName` instead.',
+      );
+
+      errorSpy.mockRestore();
+    });
+
+    it('should support showCheckedStrategy child', () => {
+      const multipleOptions = [
+        {
+          value: 'zhejiang',
+          label: 'Zhejiang',
+          children: [
+            {
+              value: 'hangzhou',
+              label: 'Hangzhou',
+              children: [
+                {
+                  value: 'xihu',
+                  label: 'West Lake',
+                },
+                {
+                  value: 'donghu',
+                  label: 'East Lake',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          value: 'jiangsu',
+          label: 'Jiangsu',
+          children: [
+            {
+              value: 'nanjing',
+              label: 'Nanjing',
+              children: [
+                {
+                  value: 'zhonghuamen',
+                  label: 'Zhong Hua Men',
+                },
+              ],
+            },
+          ],
+        },
+      ];
+
+      let selectedValue;
+      const onChange = function onChange(value) {
+        selectedValue = value;
+      };
+
+      const wrapper = mount(
+        <Cascader
+          options={multipleOptions}
+          onChange={onChange}
+          multiple
+          showCheckedStrategy={SHOW_CHILD}
+        />,
+      );
+      toggleOpen(wrapper);
+      expect(wrapper.render()).toMatchSnapshot();
+
+      clickOption(wrapper, 0, 0);
+      clickOption(wrapper, 1, 0);
+      clickOption(wrapper, 2, 0);
+      clickOption(wrapper, 2, 1);
+      expect(selectedValue[0].join(',')).toBe('zhejiang,hangzhou,xihu');
+      expect(selectedValue[1].join(',')).toBe('zhejiang,hangzhou,donghu');
+      expect(selectedValue.join(',')).toBe('zhejiang,hangzhou,xihu,zhejiang,hangzhou,donghu');
+    });
+
+    it('should support showCheckedStrategy parent', () => {
+      const multipleOptions = [
+        {
+          value: 'zhejiang',
+          label: 'Zhejiang',
+          children: [
+            {
+              value: 'hangzhou',
+              label: 'Hangzhou',
+              children: [
+                {
+                  value: 'xihu',
+                  label: 'West Lake',
+                },
+                {
+                  value: 'donghu',
+                  label: 'East Lake',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          value: 'jiangsu',
+          label: 'Jiangsu',
+          children: [
+            {
+              value: 'nanjing',
+              label: 'Nanjing',
+              children: [
+                {
+                  value: 'zhonghuamen',
+                  label: 'Zhong Hua Men',
+                },
+              ],
+            },
+          ],
+        },
+      ];
+
+      let selectedValue;
+      const onChange = function onChange(value) {
+        selectedValue = value;
+      };
+
+      const wrapper = mount(
+        <Cascader
+          options={multipleOptions}
+          onChange={onChange}
+          multiple
+          showCheckedStrategy={SHOW_PARENT}
+        />,
+      );
+      toggleOpen(wrapper);
+      expect(wrapper.render()).toMatchSnapshot();
+      clickOption(wrapper, 0, 0);
+      clickOption(wrapper, 1, 0);
+      clickOption(wrapper, 2, 0);
+      clickOption(wrapper, 2, 1);
+
+      expect(selectedValue.length).toBe(1);
+      expect(selectedValue.join(',')).toBe('zhejiang');
+    });
   });
 });

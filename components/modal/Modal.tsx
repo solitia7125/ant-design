@@ -5,9 +5,11 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
 import { getConfirmLocale } from './locale';
 import Button from '../button';
-import { LegacyButtonType, ButtonProps, convertLegacyProps } from '../button/button';
+import type { LegacyButtonType, ButtonProps } from '../button/button';
+import { convertLegacyProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import { ConfigContext, DirectionType } from '../config-provider';
+import type { DirectionType } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import { canUseDocElement } from '../_util/styleChecker';
 import { getTransitionName } from '../_util/motion';
 
@@ -38,7 +40,7 @@ export interface ModalProps {
   /** 确定按钮 loading */
   confirmLoading?: boolean;
   /** 标题 */
-  title?: React.ReactNode | string;
+  title?: React.ReactNode;
   /** 是否显示右上角的关闭按钮 */
   closable?: boolean;
   /** 点击确定回调 */
@@ -81,6 +83,7 @@ export interface ModalProps {
   closeIcon?: React.ReactNode;
   modalRender?: (node: React.ReactNode) => React.ReactNode;
   focusTriggerAfterClose?: boolean;
+  children?: React.ReactNode;
 }
 
 type getContainerFunc = () => HTMLElement;
@@ -109,6 +112,7 @@ export interface ModalFuncProps {
   zIndex?: number;
   okCancel?: boolean;
   style?: React.CSSProperties;
+  wrapClassName?: string;
   maskStyle?: React.CSSProperties;
   type?: 'info' | 'success' | 'error' | 'warn' | 'warning' | 'confirm';
   keyboard?: boolean;

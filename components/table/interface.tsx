@@ -1,15 +1,15 @@
-import * as React from 'react';
-import {
-  GetRowKey,
+import type * as React from 'react';
+import type {
   ColumnType as RcColumnType,
   RenderedCell as RcRenderedCell,
-  ExpandableConfig,
+  FixedType,
 } from 'rc-table/lib/interface';
-import { TooltipProps } from '../tooltip';
-import { CheckboxProps } from '../checkbox';
-import { PaginationProps } from '../pagination';
-import { Breakpoint } from '../_util/responsiveObserve';
-import { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
+import { GetRowKey, ExpandableConfig } from 'rc-table/lib/interface';
+import type { TooltipProps } from '../tooltip';
+import type { CheckboxProps } from '../checkbox';
+import type { PaginationProps } from '../pagination';
+import type { Breakpoint } from '../_util/responsiveObserve';
+import type { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
 import { tuple } from '../_util/type';
 // import { TableAction } from './Table';
 
@@ -72,6 +72,7 @@ export type ColumnTitle<RecordType> =
 
 export type FilterValue = (Key | boolean)[];
 export type FilterKey = Key[] | null;
+export type FilterSearchType = boolean | ((input: string, record: {}) => boolean);
 export interface FilterConfirmProps {
   closeDropdown: boolean;
 }
@@ -86,7 +87,7 @@ export interface FilterDropdownProps {
   visible: boolean;
 }
 
-export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
+export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, 'title'> {
   title?: ColumnTitle<RecordType>;
   // Sorter
   sorter?:
@@ -111,10 +112,11 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   defaultFilteredValue?: FilterValue | null;
   filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
   filterMode?: 'menu' | 'tree';
-  filterSearch?: boolean;
+  filterSearch?: FilterSearchType;
   onFilter?: (value: string | number | boolean, record: RecordType) => boolean;
   filterDropdownVisible?: boolean;
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
+  filterResetToDefaultFilteredValue?: boolean;
 
   // Responsive
   responsive?: Breakpoint[];
@@ -159,7 +161,7 @@ export interface TableRowSelection<T> {
   onSelectNone?: () => void;
   selections?: INTERNAL_SELECTION_ITEM[] | boolean;
   hideSelectAll?: boolean;
-  fixed?: boolean;
+  fixed?: FixedType;
   columnWidth?: string | number;
   columnTitle?: string | React.ReactNode;
   checkStrictly?: boolean;
