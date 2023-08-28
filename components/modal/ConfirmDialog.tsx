@@ -1,47 +1,64 @@
-import * as React from 'react';
+import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
-import type { ModalFuncProps } from './Modal';
-import Dialog from './Modal';
+import * as React from 'react';
 import ActionButton from '../_util/ActionButton';
-import warning from '../_util/warning';
-import ConfigProvider from '../config-provider';
 import { getTransitionName } from '../_util/motion';
+import warning from '../_util/warning';
+import type { ThemeConfig } from '../config-provider';
+import ConfigProvider from '../config-provider';
+import { useLocale } from '../locale';
+import Dialog from './Modal';
+import type { ModalFuncProps, ModalLocale } from './interface';
 
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
-  close: (...args: any[]) => void;
+  close?: (...args: any[]) => void;
+  /**
+   * `close` prop support `...args` that pass to the developer
+   * that we can not break this.
+   * Provider `onClose` for internal usage
+   */
+  onConfirm?: (confirmed: boolean) => void;
   autoFocusButton?: null | 'ok' | 'cancel';
   rootPrefixCls: string;
   iconPrefixCls?: string;
+  theme?: ThemeConfig;
+
+  /** @private Internal Usage. Do not override this */
+  locale?: ModalLocale;
+
+  /**
+   * Do not throw if is await mode
+   */
+  isSilent?: () => boolean;
 }
 
-const ConfirmDialog = (props: ConfirmDialogProps) => {
+export function ConfirmContent(
+  props: ConfirmDialogProps & {
+    confirmPrefixCls: string;
+  },
+) {
   const {
     icon,
     onCancel,
     onOk,
     close,
-    zIndex,
-    afterClose,
-    visible,
-    keyboard,
-    centered,
-    getContainer,
-    maskStyle,
+    onConfirm,
+    isSilent,
     okText,
     okButtonProps,
     cancelText,
     cancelButtonProps,
-    direction,
-    prefixCls,
-    wrapClassName,
+    confirmPrefixCls,
     rootPrefixCls,
-    iconPrefixCls,
-    bodyStyle,
-    closable = false,
-    closeIcon,
-    modalRender,
-    focusTriggerAfterClose,
+    type,
+    okCancel,
+    footer,
+    // Legacy for static function usage
+    locale: staticLocale,
   } = props;
 
   warning(
@@ -50,50 +67,154 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
   );
 
+  // Icon
+  let mergedIcon: React.ReactNode = icon;
+
   // 支持传入{ icon: null }来隐藏`Modal.confirm`默认的Icon
+  if (!icon && icon !== null) {
+    switch (type) {
+      case 'info':
+        mergedIcon = <InfoCircleFilled />;
+        break;
+
+      case 'success':
+        mergedIcon = <CheckCircleFilled />;
+        break;
+
+      case 'error':
+        mergedIcon = <CloseCircleFilled />;
+        break;
+
+      default:
+        mergedIcon = <ExclamationCircleFilled />;
+    }
+  }
+
   const okType = props.okType || 'primary';
-  const contentPrefixCls = `${prefixCls}-confirm`;
   // 默认为 true，保持向下兼容
-  const okCancel = 'okCancel' in props ? props.okCancel! : true;
+  const mergedOkCancel = okCancel ?? type === 'confirm';
+
+  const autoFocusButton = props.autoFocusButton === null ? false : props.autoFocusButton || 'ok';
+
+  const [locale] = useLocale('Modal');
+
+  const mergedLocale = staticLocale || locale;
+
+  const cancelButton = mergedOkCancel && (
+    <ActionButton
+      isSilent={isSilent}
+      actionFn={onCancel}
+      close={(...args: any[]) => {
+        close?.(...args);
+        onConfirm?.(false);
+      }}
+      autoFocus={autoFocusButton === 'cancel'}
+      buttonProps={cancelButtonProps}
+      prefixCls={`${rootPrefixCls}-btn`}
+    >
+      {cancelText || mergedLocale?.cancelText}
+    </ActionButton>
+  );
+
+  return (
+    <div className={`${confirmPrefixCls}-body-wrapper`}>
+      <div className={`${confirmPrefixCls}-body`}>
+        {mergedIcon}
+        {props.title === undefined ? null : (
+          <span className={`${confirmPrefixCls}-title`}>{props.title}</span>
+        )}
+        <div className={`${confirmPrefixCls}-content`}>{props.content}</div>
+      </div>
+      {footer === undefined ? (
+        <div className={`${confirmPrefixCls}-btns`}>
+          {cancelButton}
+          <ActionButton
+            isSilent={isSilent}
+            type={okType}
+            actionFn={onOk}
+            close={(...args: any[]) => {
+              close?.(...args);
+              onConfirm?.(true);
+            }}
+            autoFocus={autoFocusButton === 'ok'}
+            buttonProps={okButtonProps}
+            prefixCls={`${rootPrefixCls}-btn`}
+          >
+            {okText || (mergedOkCancel ? mergedLocale?.okText : mergedLocale?.justOkText)}
+          </ActionButton>
+        </div>
+      ) : (
+        footer
+      )}
+    </div>
+  );
+}
+
+const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
+  const {
+    close,
+    zIndex,
+    afterClose,
+    visible,
+    open,
+    keyboard,
+    centered,
+    getContainer,
+    maskStyle,
+    direction,
+    prefixCls,
+    wrapClassName,
+    rootPrefixCls,
+    iconPrefixCls,
+    theme,
+    bodyStyle,
+    closable = false,
+    closeIcon,
+    modalRender,
+    focusTriggerAfterClose,
+  } = props;
+
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      visible === undefined,
+      'Modal',
+      `\`visible\` is deprecated, please use \`open\` instead.`,
+    );
+  }
+
+  const confirmPrefixCls = `${prefixCls}-confirm`;
+
   const width = props.width || 416;
   const style = props.style || {};
   const mask = props.mask === undefined ? true : props.mask;
   // 默认为 false，保持旧版默认行为
   const maskClosable = props.maskClosable === undefined ? false : props.maskClosable;
-  const autoFocusButton = props.autoFocusButton === null ? false : props.autoFocusButton || 'ok';
 
   const classString = classNames(
-    contentPrefixCls,
-    `${contentPrefixCls}-${props.type}`,
-    { [`${contentPrefixCls}-rtl`]: direction === 'rtl' },
+    confirmPrefixCls,
+    `${confirmPrefixCls}-${props.type}`,
+    { [`${confirmPrefixCls}-rtl`]: direction === 'rtl' },
     props.className,
   );
 
-  const cancelButton = okCancel && (
-    <ActionButton
-      actionFn={onCancel}
-      close={close}
-      autoFocus={autoFocusButton === 'cancel'}
-      buttonProps={cancelButtonProps}
-      prefixCls={`${rootPrefixCls}-btn`}
-    >
-      {cancelText}
-    </ActionButton>
-  );
-
   return (
-    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls} direction={direction}>
+    <ConfigProvider
+      prefixCls={rootPrefixCls}
+      iconPrefixCls={iconPrefixCls}
+      direction={direction}
+      theme={theme}
+    >
       <Dialog
         prefixCls={prefixCls}
         className={classString}
         wrapClassName={classNames(
-          { [`${contentPrefixCls}-centered`]: !!props.centered },
+          { [`${confirmPrefixCls}-centered`]: !!props.centered },
           wrapClassName,
         )}
-        onCancel={() => close({ triggerCancel: true })}
-        visible={visible}
+        onCancel={() => close?.({ triggerCancel: true })}
+        open={open}
         title=""
-        footer=""
+        footer={null}
         transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
         maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
         mask={mask}
@@ -112,31 +233,14 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
         modalRender={modalRender}
         focusTriggerAfterClose={focusTriggerAfterClose}
       >
-        <div className={`${contentPrefixCls}-body-wrapper`}>
-          <div className={`${contentPrefixCls}-body`}>
-            {icon}
-            {props.title === undefined ? null : (
-              <span className={`${contentPrefixCls}-title`}>{props.title}</span>
-            )}
-            <div className={`${contentPrefixCls}-content`}>{props.content}</div>
-          </div>
-          <div className={`${contentPrefixCls}-btns`}>
-            {cancelButton}
-            <ActionButton
-              type={okType}
-              actionFn={onOk}
-              close={close}
-              autoFocus={autoFocusButton === 'ok'}
-              buttonProps={okButtonProps}
-              prefixCls={`${rootPrefixCls}-btn`}
-            >
-              {okText}
-            </ActionButton>
-          </div>
-        </div>
+        <ConfirmContent {...props} confirmPrefixCls={confirmPrefixCls} />
       </Dialog>
     </ConfigProvider>
   );
 };
+
+if (process.env.NODE_ENV !== 'production') {
+  ConfirmDialog.displayName = 'ConfirmDialog';
+}
 
 export default ConfirmDialog;

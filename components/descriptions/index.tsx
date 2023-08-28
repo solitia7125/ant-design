@@ -1,21 +1,18 @@
+'use client';
+
 /* eslint-disable react/no-array-index-key */
-import * as React from 'react';
 import classNames from 'classnames';
-import toArray from 'rc-util/lib/Children/toArray';
-import type { Breakpoint, ScreenMap } from '../_util/responsiveObserve';
-import ResponsiveObserve, { responsiveArray } from '../_util/responsiveObserve';
-import warning from '../_util/warning';
+import * as React from 'react';
+import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver';
+import useResponsiveObserver, { responsiveArray } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
-import Row from './Row';
+import useSize from '../config-provider/hooks/useSize';
+import DescriptionsContext from './DescriptionsContext';
+import type { DescriptionsItemProps } from './Item';
 import DescriptionsItem from './Item';
-import { cloneElement } from '../_util/reactNode';
-
-export interface DescriptionsContextProps {
-  labelStyle?: React.CSSProperties;
-  contentStyle?: React.CSSProperties;
-}
-
-export const DescriptionsContext = React.createContext<DescriptionsContextProps>({});
+import Row from './Row';
+import useRow from './hooks/useRow';
+import useStyle from './style';
 
 const DEFAULT_COLUMN_MAP: Record<Breakpoint, number> = {
   xxl: 3,
@@ -43,65 +40,24 @@ function getColumn(column: DescriptionsProps['column'], screens: ScreenMap): num
   return 3;
 }
 
-function getFilledItem(
-  node: React.ReactElement,
-  span: number | undefined,
-  rowRestCol: number,
-): React.ReactElement {
-  let clone = node;
-
-  if (span === undefined || span > rowRestCol) {
-    clone = cloneElement(node, {
-      span: rowRestCol,
-    });
-    warning(
-      span === undefined,
-      'Descriptions',
-      'Sum of column `span` in a line not match `column` of Descriptions.',
-    );
-  }
-
-  return clone;
+interface CompoundedComponent {
+  Item: typeof DescriptionsItem;
 }
 
-function getRows(children: React.ReactNode, column: number) {
-  const childNodes = toArray(children).filter(n => n);
-  const rows: React.ReactElement[][] = [];
-
-  let tmpRow: React.ReactElement[] = [];
-  let rowRestCol = column;
-
-  childNodes.forEach((node, index) => {
-    const span: number | undefined = node.props?.span;
-    const mergedSpan = span || 1;
-
-    // Additional handle last one
-    if (index === childNodes.length - 1) {
-      tmpRow.push(getFilledItem(node, span, rowRestCol));
-      rows.push(tmpRow);
-      return;
-    }
-
-    if (mergedSpan < rowRestCol) {
-      rowRestCol -= mergedSpan;
-      tmpRow.push(node);
-    } else {
-      tmpRow.push(getFilledItem(node, mergedSpan, rowRestCol));
-      rows.push(tmpRow);
-      rowRestCol = column;
-      tmpRow = [];
-    }
-  });
-
-  return rows;
+export interface DescriptionsItemType extends DescriptionsItemProps {
+  key?: React.Key;
 }
 
 export interface DescriptionsProps {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   bordered?: boolean;
   size?: 'middle' | 'small' | 'default';
+  /**
+   * @deprecated use `items` instead
+   */
   children?: React.ReactNode;
   title?: React.ReactNode;
   extra?: React.ReactNode;
@@ -110,31 +66,42 @@ export interface DescriptionsProps {
   colon?: boolean;
   labelStyle?: React.CSSProperties;
   contentStyle?: React.CSSProperties;
+  items?: DescriptionsItemType[];
 }
 
-function Descriptions({
-  prefixCls: customizePrefixCls,
-  title,
-  extra,
-  column = DEFAULT_COLUMN_MAP,
-  colon = true,
-  bordered,
-  layout,
-  children,
-  className,
-  style,
-  size,
-  labelStyle,
-  contentStyle,
-}: DescriptionsProps) {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) => {
+  const {
+    prefixCls: customizePrefixCls,
+    title,
+    extra,
+    column = DEFAULT_COLUMN_MAP,
+    colon = true,
+    bordered,
+    layout,
+    children,
+    className,
+    rootClassName,
+    style,
+    size: customizeSize,
+    labelStyle,
+    contentStyle,
+    items,
+    ...restProps
+  } = props;
+  const { getPrefixCls, direction, descriptions } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
   const [screens, setScreens] = React.useState<ScreenMap>({});
   const mergedColumn = getColumn(column, screens);
 
+  const mergedSize = useSize(customizeSize);
+  const rows = useRow(mergedColumn, items, children);
+
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const responsiveObserver = useResponsiveObserver();
+
   // Responsive
   React.useEffect(() => {
-    const token = ResponsiveObserve.subscribe(newScreens => {
+    const token = responsiveObserver.subscribe((newScreens) => {
       if (typeof column !== 'object') {
         return;
       }
@@ -142,30 +109,33 @@ function Descriptions({
     });
 
     return () => {
-      ResponsiveObserve.unsubscribe(token);
+      responsiveObserver.unsubscribe(token);
     };
   }, []);
 
-  // Children
-  const rows = getRows(children, mergedColumn);
+  // ======================== Render ========================
   const contextValue = React.useMemo(
     () => ({ labelStyle, contentStyle }),
     [labelStyle, contentStyle],
   );
 
-  return (
+  return wrapSSR(
     <DescriptionsContext.Provider value={contextValue}>
       <div
         className={classNames(
           prefixCls,
+          descriptions?.className,
           {
-            [`${prefixCls}-${size}`]: size && size !== 'default',
+            [`${prefixCls}-${mergedSize}`]: mergedSize && mergedSize !== 'default',
             [`${prefixCls}-bordered`]: !!bordered,
             [`${prefixCls}-rtl`]: direction === 'rtl',
           },
           className,
+          rootClassName,
+          hashId,
         )}
-        style={style}
+        style={{ ...descriptions?.style, ...style }}
+        {...restProps}
       >
         {(title || extra) && (
           <div className={`${prefixCls}-header`}>
@@ -192,9 +162,16 @@ function Descriptions({
           </table>
         </div>
       </div>
-    </DescriptionsContext.Provider>
+    </DescriptionsContext.Provider>,
   );
+};
+
+if (process.env.NODE_ENV !== 'production') {
+  Descriptions.displayName = 'Descriptions';
 }
+
+export type { DescriptionsContextProps } from './DescriptionsContext';
+export { DescriptionsContext };
 
 Descriptions.Item = DescriptionsItem;
 

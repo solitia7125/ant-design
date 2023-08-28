@@ -1,4 +1,6 @@
-import { Row, RowProps } from '../grid';
+'use client';
 
-export { RowProps };
+import { Row, type RowProps } from '../grid';
+
+export type { RowProps };
 export default Row;
