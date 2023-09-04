@@ -4,6 +4,7 @@ import { resetComponent } from '../../style';
 import { genCollapseMotion, zoomIn } from '../../style/motion';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 import genFormValidateMotionStyle from './explain';
 
 export interface FormToken extends FullToken<'Form'> {
@@ -149,7 +150,6 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
       // =                            Label                           =
       // ==============================================================
       [`${formItemCls}-label`]: {
-        display: 'inline-block',
         flexGrow: 0,
         overflow: 'hidden',
         whiteSpace: 'nowrap',
@@ -232,7 +232,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
       // =                            Input                           =
       // ==============================================================
       [`${formItemCls}-control`]: {
-        display: 'flex',
+        ['--ant-display' as any]: 'flex',
         flexDirection: 'column',
         flexGrow: 1,
 
@@ -323,7 +323,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
 };
 
 const genHorizontalStyle: GenerateStyle<FormToken> = (token) => {
-  const { componentCls, formItemCls, rootPrefixCls } = token;
+  const { componentCls, formItemCls } = token;
 
   return {
     [`${componentCls}-horizontal`]: {
@@ -338,9 +338,14 @@ const genHorizontalStyle: GenerateStyle<FormToken> = (token) => {
         minWidth: 0,
       },
 
+      // Do not change this to `ant-col-24`! `-24` match all the responsive rules
       // https://github.com/ant-design/ant-design/issues/32980
-      [`${formItemCls}-label.${rootPrefixCls}-col-24 + ${formItemCls}-control`]: {
-        minWidth: 'unset',
+      // https://github.com/ant-design/ant-design/issues/34903
+      // https://github.com/ant-design/ant-design/issues/44538
+      [`${formItemCls}-label[class$='-24'], ${formItemCls}-label[class*='-24 ']`]: {
+        [`& + ${formItemCls}-control`]: {
+          minWidth: 'unset',
+        },
       },
     },
   };
@@ -477,20 +482,38 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Form', (token, { rootPrefixCls }) => {
+export const prepareToken: (
+  token: Parameters<GenStyleFn<'Form'>>[0],
+  rootPrefixCls: string,
+) => FormToken = (token, rootPrefixCls) => {
   const formToken = mergeToken<FormToken>(token, {
     formItemCls: `${token.componentCls}-item`,
     rootPrefixCls,
   });
 
-  return [
-    genFormStyle(formToken),
-    genFormItemStyle(formToken),
-    genFormValidateMotionStyle(formToken),
-    genHorizontalStyle(formToken),
-    genInlineStyle(formToken),
-    genVerticalStyle(formToken),
-    genCollapseMotion(formToken),
-    zoomIn,
-  ];
-});
+  return formToken;
+};
+
+export default genComponentStyleHook(
+  'Form',
+  (token, { rootPrefixCls }) => {
+    const formToken = prepareToken(token, rootPrefixCls);
+
+    return [
+      genFormStyle(formToken),
+      genFormItemStyle(formToken),
+      genFormValidateMotionStyle(formToken),
+      genHorizontalStyle(formToken),
+      genInlineStyle(formToken),
+      genVerticalStyle(formToken),
+      genCollapseMotion(formToken),
+      zoomIn,
+    ];
+  },
+  null,
+  {
+    // Let From style before the Grid
+    // ref https://github.com/ant-design/ant-design/issues/44386
+    order: -1000,
+  },
+);
